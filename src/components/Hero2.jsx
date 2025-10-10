@@ -4,7 +4,9 @@ import TopNavbar from "./Navbar/TopNavInfo";
 export default function Hero2() {
   return (
     <>
-    <TopNavbar/>
+    <div className="hidden sm:block">
+        <TopNavbar />
+      </div>
       <Navbar />
 
       {/* --- Hero Section --- */}
