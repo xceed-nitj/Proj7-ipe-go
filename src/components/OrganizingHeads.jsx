@@ -157,6 +157,13 @@ const OrganizingHeads = () => {
         background: "linear-gradient(135deg, #E8F5E9 0%, #F9FAFB 50%, #E8F5E9 100%)",
       }}
     >
+       <h2 className="text-[#1B4332] text-2xl sm:text-3xl  font-bold font-oswald tracking-wide leading-tight drop-shadow-md underline text-center mb-8 relative z-10">
+          {/* <span className="block">About</span> */}
+          <span className="block text-[#2D6A4F] mt-2">
+            Organising Heads
+          </span>
+          {/* <span className="block text-[#081C15]">Jalandhar</span> */}
+        </h2>
       {/* === Animated Concentric Background === */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
         <div className="absolute w-[600px] h-[600px] border border-green-900 rounded-full left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
