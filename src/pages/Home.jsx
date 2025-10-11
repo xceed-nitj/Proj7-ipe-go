@@ -106,7 +106,7 @@ import OrganizingHeads from "../components/OrganizingHeads";
 import AboutConf from "../components/Aboutconf.jsx";
 // import NavbarBluePink from "../components/Navbar/index.jsx";
 // import AboutNews from "./components/Dummy";
-import PinkWaveBanner from "../components/wave.jsx";
+// import PinkWaveBanner from "../components/wave.jsx";
 
 function Home(props) {
   useEffect(() => {
@@ -147,8 +147,8 @@ function Home(props) {
           <AboutConf confid={props.confId} />
         </div>
       </section>
-      <PinkWaveBanner speed={5}/>
-      <PinkWaveBanner flip/>
+      {/* <PinkWaveBanner speed={5}/>
+      <PinkWaveBanner flip/> */}
 
       {/* Timeline */}
       <section className="px-3 md:px-6 lg:px-8 py-2 md:py-10 lg:py-14">
@@ -156,16 +156,14 @@ function Home(props) {
           <Timeline confid={props.confId} />
         </div>
       </section>
-       <PinkWaveBanner speed={5}/>
-      <PinkWaveBanner flip/>
+      
       {/* About NITJ */}
       <section className="px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <AboutNITJ confid={props.confId} />
         </div>
       </section>
-       <PinkWaveBanner speed={5}/>
-      <PinkWaveBanner flip/>
+   
       {/* Countdown Timers - Removed as Hero2 now includes countdown */}
       
       {/* About Department */}
@@ -174,8 +172,7 @@ function Home(props) {
           <AboutDept confid={props.confId} />
         </div>
       </section>
-       <PinkWaveBanner speed={5}/>
-      <PinkWaveBanner flip/>
+      
       {/* Organizing Committee */}
       <section className="px-3 md:px-6 lg:px-8 py-6 md:py-10 lg:py-14">
         <div className="max-w-7xl mx-auto">

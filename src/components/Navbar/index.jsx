@@ -10,26 +10,26 @@ export default function NavbarGreenTheme() {
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Tracks", href: "/68adcce8e8f579b7ff663394" },
-    { label: "Organising Heads", href: "/68adcccfe8f579b7ff66329a" },
+    { label: "Tracks", href: "/68e9f44c413c437a3acccdad" },
+    { label: "Organising Heads", href: "/68e9f2ca413c437a3acccceb" },
     {
       label: "Committees",
       subItems: [
-        { label: "International Advisory Committee", href: "/68adccd5e8f579b7ff6632b6", icon: <Globe className="w-4 h-4" /> },
-        { label: "National Advisory Committee", href: "/68adccd9e8f579b7ff6632d8", icon: <Users className="w-4 h-4" /> },
-        { label: "Technical Committee", href: "/68adccdee8f579b7ff6632fe", icon: <FileText className="w-4 h-4" /> },
-        { label: "Other Committees", href: "/68adcce3e8f579b7ff66332a", icon: <Users className="w-4 h-4" /> },
+        { label: "International Advisory Committee", href: "/68e9f2c0413c437a3accccb6", icon: <Globe className="w-4 h-4" /> },
+        { label: "National Advisory Committee", href: "/68e9f481413c437a3accce2b", icon: <Users className="w-4 h-4" /> },
+        { label: "Technical Committee", href: "/68e9f498413c437a3accce4d", icon: <FileText className="w-4 h-4" /> },
+        // { label: "Other Committees", href: "/68adcce3e8f579b7ff66332a", icon: <Users className="w-4 h-4" /> },
       ],
     },
-    { label: "Paper Submission", href: "/68875b0d959ec9c788fac137" },
+    { label: "Paper Submission", href: "/68e9f4cf413c437a3accce8f" },
     {
       label: "Registration",
       subItems: [
-        { label: "Registration Fee", href: "/68adcd02e8f579b7ff663404", icon: <DollarSign className="w-4 h-4" /> },
-        { label: "Registration Link", href: "/68adccfce8f579b7ff6633e8", icon: <FileText className="w-4 h-4" /> },
+        { label: "Registration Fee", href: "/68e9f4e9413c437a3accceb0", icon: <DollarSign className="w-4 h-4" /> },
+        { label: "Registration Link", href: "/68e9f4fa413c437a3accced1", icon: <FileText className="w-4 h-4" /> },
       ],
     },
-    { label: "Location", href: "/68adccc0e8f579b7ff66327d" },
+    { label: "Location", href: "/68e9f507413c437a3acccef3" },
   ];
 
   const isActive = (to) => to && (pathname === to || pathname.endsWith(to));
@@ -39,16 +39,16 @@ export default function NavbarGreenTheme() {
 
   return (
     <header className="sticky top-0 z-50 font-jost backdrop-blur-md bg-[#F6F8F5]/95 border-b border-[#D8E3DD] shadow-sm">
-      <div className="max-w-[1300px] mx-auto flex items-center justify-between h-16 px-6">
+      <div className="max-w-[1300px] mx-auto flex items-center justify-between h-12 px-6">
         {/* LEFT SECTION - LOGO + NAV */}
-        <div className="flex items-center space-x-10">
+        <div className="flex items-center space-x-8">
           {/* LOGO */}
           <Link to="/" className="text-xl font-bold tracking-wide text-[#1B4332] flex-shrink-0">
-            VISTA <span className="text-[#2D6A4F]">2026</span>
+            GLOGIFT <span className="text-[#2D6A4F]">2026</span>
           </Link>
 
           {/* NAV ITEMS */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-2">
             {navItems.map((it, index) =>
               it.subItems ? (
                 <div
@@ -59,7 +59,7 @@ export default function NavbarGreenTheme() {
                 >
                   <button className={linkBaseDesktop} type="button">
                     {it.label}
-                    <ChevronDown className="w-4 h-4 ml-1 text-[#2D6A4F]" />
+                    <ChevronDown className="w-4 h-2 ml-1 text-[#2D6A4F]" />
                     <span className="absolute left-3 right-3 -bottom-1 h-0.5 bg-[#95D5B2] origin-left scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
                   </button>
 

@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function TopNavbar() {
   return (
-    <div className="bg-[#F6F8F5] text-[#1B4332] px-4 sm:px-6 py-2 text-xs sm:text-sm border-b border-[#D8E3DD] font-sans">
+    <div className="bg-[#F6F8F5] text-[#1B4332] px-4 sm:px-6 py-1 text-xs sm:text-sm border-b border-[#D8E3DD] font-sans">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
         
         {/* Left Section - Social Icons */}
