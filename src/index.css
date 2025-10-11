@@ -76,13 +76,13 @@
 @layer base {
   table {
     width: 100%;
-    border: 2px solid #2563eb;
+    border: 2px solid #068a0a;
     border-collapse: collapse;
     color: #0c0c0c;
   }
   th,
   td {
-    border: 1px solid #2563eb;
+    border: 1px solid #0d7c3d;
     padding: 0.5rem 1rem;
   }
 }
@@ -146,3 +146,21 @@
   padding-right: 15px;
   line-height: 1.5 !important;
 } */
+
+/* Responsive table styling inside .prose */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+  padding: 8px;
+  text-align: left;
+}
+
+.prose th {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  font-weight: 600;
+}
