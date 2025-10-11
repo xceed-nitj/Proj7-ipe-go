@@ -36,17 +36,17 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Email:</strong> vista@nitj.ac.in
+                  <strong>Email:</strong> gargrk@nitj.ac.in
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr. Nitesh Kashyap</strong> (Organizing Secretary):{" "}
-                  +91&nbsp;97533&nbsp;01930
+                  <strong>Prof. R K Garg</strong> (Conference Secretariat){" "}
+                  +91&nbsp;9417549529
                 </span>
               </li>
-              <li className="flex items-start gap-3">
+              {/* <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
                   <strong>Dr. Rohit Singh</strong> (Organizing Chairman):{" "}
@@ -59,7 +59,7 @@ const Footer = () => {
                   <strong>Dr. Aijaz Mehdi Zaidi</strong> (Organizing Chairman):{" "}
                   +91&nbsp;0181-5032621
                 </span>
-              </li>
+              </li> */}
             </ul>
           </div>
 
