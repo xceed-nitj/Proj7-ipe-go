@@ -17,24 +17,18 @@ export default function Hero2() {
           
           {/* --- Background Image --- */}
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
-            
-            {/* ✅ Mobile background */}
             <img
               src="/bg.jpg"
               alt="Mobile Background"
               className="absolute inset-0 w-full h-full object-cover sm:hidden"
               draggable="false"
             />
-
-            {/* ✅ Desktop / Tablet background */}
             <img
               src="/Backgroundcanva.jpg"
               alt="Background Canvas"
               className="absolute inset-0 w-full h-full object-cover hidden sm:block"
               draggable="false"
             />
-
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-br from-white/70 via-white/40 to-[#E7F2EE]/40 md:from-white/20 md:via-white/10 md:to-[#E7F2EE]/20" />
           </div>
 
@@ -44,47 +38,64 @@ export default function Hero2() {
               
               {/* ---------- LEFT SIDE ---------- */}
               <div className="flex flex-col items-start text-left gap-5 font-sans">
-                <img
-                  src="/nitjlogo.png"
-                  alt="NIT Jalandhar"
-                  className="h-12 sm:h-16 w-auto object-contain"
-                  loading="lazy"
-                />
+                {/* Logos and Title */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/nitjlogo.png"
+                    alt="NIT Jalandhar"
+                    className="h-12 sm:h-16 w-auto object-contain"
+                    loading="lazy"
+                  />
+                  <img
+                    src="/glo.jpg"
+                    alt="GLOGIFT"
+                    className="h-10 sm:h-14 w-auto object-contain"
+                    loading="lazy"
+                  />
+                  <span className="text-[#007A5E] font-bold text-lg sm:text-2xl">
+                    GLOGIFT&nbsp;2026
+                  </span>
+                </div>
 
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1D2A26] leading-snug">
-                  International Conference on{" "}
-                  <span className="text-[#007A5E]">
-                    VLSI, Intelligent Systems, Signal Processing,
-                    <br className="hidden sm:block" /> Telecommunication and AI
-                  </span>
+                  26<sup>th</sup> Global Conference on{" "}
+                  <span className="text-[#007A5E]">Flexible Systems Management</span>
                 </h1>
 
-                <p className="text-sm sm:text-lg text-[#4E605A] leading-relaxed max-w-md">
-                  Innovating for a Sustainable and Connected Future
+                <p className="text-lg sm:text-xl text-[#4E605A] font-medium">
+                  Theme:{" "}
+                  <span className="text-[#007A5E] font-semibold">
+                    Sustainable Innovation through Flexible Strategies in the Era of Industry 4.0 and Industry 5.0
+                  </span>
                 </p>
 
-                <div className="flex items-center gap-2 text-[#2C3E50]">
-                  <svg
-                    className="w-5 h-5 text-[#007A5E]"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 11a3 3 0 100-6 3 3 0 000 6z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z"
-                    />
-                  </svg>
-                  <span className="text-sm sm:text-base font-medium">
-                    Dr B R Ambedkar National Institute of Technology, Jalandhar
-                  </span>
+                <div className="flex flex-col gap-1 text-[#2C3E50] text-sm sm:text-base">
+                  <p>
+                    <strong>Dates:</strong> December 16 – 18, 2026
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5 text-[#007A5E]"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 11a3 3 0 100-6 3 3 0 000 6z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z"
+                      />
+                    </svg>
+                    <span>
+                      Dr. B. R. Ambedkar National Institute of Technology, Jalandhar, Punjab, India
+                    </span>
+                  </div>
                 </div>
 
                 <button className="mt-3 bg-[#007A5E] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#00624C] shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2 group">
@@ -105,7 +116,7 @@ export default function Hero2() {
                 </button>
               </div>
 
-              {/* ---------- RIGHT SIDE ---------- */}
+              {/* ---------- RIGHT SIDE (removed hosted by) ---------- */}
               <div className="hidden md:flex flex-col items-center justify-center"></div>
             </div>
           </main>
