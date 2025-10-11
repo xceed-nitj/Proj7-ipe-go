@@ -69,15 +69,21 @@ function AboutNITJ({ confid }) {
   }, [apiUrl, confid]);
 
   return (
-    <section className="relative w-full flex flex-col justify-center items-center py-20 px-6 overflow-hidden rounded-xl bg-[#DEE3E1]">
+    <motion.section
+      initial={{ opacity: 0, x: 120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative w-full flex flex-col justify-center items-center py-20 px-6 overflow-hidden rounded-xl bg-[#DEE3E1] mb-40"
+    >
       {/* Soft Background Pattern */}
       <div className="absolute inset-0 bg-[url('/bgpattern.svg')] bg-cover opacity-10" />
 
       {/* Title Section */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, x: 80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
         className="text-center mb-14 relative z-10"
       >
@@ -91,7 +97,7 @@ function AboutNITJ({ confid }) {
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
           className="w-28 h-[4px] bg-gradient-to-r from-[#2D6A4F] to-[#1B4332] mx-auto mt-4 rounded-full origin-left"
         ></motion.div>
@@ -99,17 +105,17 @@ function AboutNITJ({ confid }) {
 
       {/* Content Card */}
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         viewport={{ once: true }}
         className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-8 lg:p-12 hover:shadow-[0_12px_60px_rgba(0,0,0,0.25)] transition-all duration-700 ease-out"
       >
         {/* Text Section */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
           className="lg:col-span-3 text-[#1B4332] text-base sm:text-lg leading-relaxed text-justify overflow-auto max-h-[80vh]"
         >
@@ -125,7 +131,9 @@ function AboutNITJ({ confid }) {
               <div
                 className="about-content space-y-3 leading-7"
                 dangerouslySetInnerHTML={{
-                  __html: data.about[3]?.description || "",
+                  __html: data.about[3]?.description || `
+                    Dr. B.R. Ambedkar National Institute of Technology, Jalandhar (NITJ) is a premier public technical institute located in Jalandhar, Punjab, India. Established in 1987 as a Regional Engineering College and upgraded to a National Institute of Technology in 2002, it has earned the status of an Institute of National Importance. NITJ offers undergraduate, postgraduate, and doctoral programs in engineering, technology, sciences, and management, emphasizing academic excellence, research, and innovation. The institute boasts modern infrastructure, well-equipped laboratories, and strong industry collaborations, providing students with opportunities for practical learning, entrepreneurship, and global exposure. Known for its vibrant campus life, cultural and technical events, and a strong placement record, NIT Jalandhar strives to develop skilled professionals capable of contributing to technological advancement and societal development.
+                  `,
                 }}
               />
             )
@@ -134,9 +142,9 @@ function AboutNITJ({ confid }) {
 
         {/* Slider Section */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.1, delay: 0.6 }}
           viewport={{ once: true }}
           className="lg:col-span-2 flex items-center justify-center"
         >
@@ -146,7 +154,7 @@ function AboutNITJ({ confid }) {
 
       {/* Subtle Bottom Glow */}
       <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[70%] h-64 bg-gradient-to-t from-[#52B788]/40 to-transparent blur-3xl pointer-events-none"></div>
-    </section>
+    </motion.section>
   );
 }
 
