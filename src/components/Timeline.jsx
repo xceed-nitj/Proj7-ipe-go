@@ -82,7 +82,7 @@ const Timeline = forwardRef((props, ref) => {
     >
       <div className="w-full max-w-6xl">
         {/* Title */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-20">
           <button
             className="rounded-3xl px-6 py-3 text-white font-semibold text-xl sm:text-2xl shadow-sm"
             style={{
@@ -90,7 +90,7 @@ const Timeline = forwardRef((props, ref) => {
             }}
             aria-label="Timeline"
           >
-            Timeline
+            Timeline of GLOGIFT2026
           </button>
         </div>
 
