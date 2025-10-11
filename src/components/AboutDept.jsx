@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const sliderData = [
-  { image: "/ece1.jpeg", label: "" },
-  { image: "/ece2.png", label: "" },
-  { image: "/ece3.png", label: "" },
+  { image: "/ipe4.jpg", label: "" },
+  { image: "/ipe2.jpg", label: "" },
+  { image: "/ipe3.jpg", label: "" },
+  { image: "/ipe1.jpg", label: "" },
+
 ];
 
 function Slider() {

@@ -69,19 +69,18 @@ const Footer = () => {
               Global Visitors
             </h3>
             <a
-              href="https://info.flagcounter.com/8LP0"
+              href="https://info.flagcounter.com/ApT8"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="https://s01.flagcounter.com/count2/8LP0/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
+                src="https://s01.flagcounter.com/count2/ApT8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"
                 alt="Flag Counter"
                 className="rounded-lg shadow-md border border-gray-300"
               />
             </a>
           </div>
         </div>
-
         {/* ---- Divider ---- */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
 

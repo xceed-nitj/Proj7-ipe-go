@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const sliderData = [
-  { image: "/img1.jpg", label: " " },
-  { image: "/slider4.jpg", label: " " },
-  { image: "/img3.jpg", label: " " },
-  { image: "/slider2.jpg", label: " " },
+  { image: "/glo1.jpg", label: " " },
+  { image: "/glo2.jpg", label: " " },
+  { image: "/glo3.jpg", label: " " },
+  { image: "/glo4.jpg", label: " " },
 ];
 
 // --- Slider Component ---
