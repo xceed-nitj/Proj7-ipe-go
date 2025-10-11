@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="lg:w-1/2">
             <div>
               <h2 className="mt-3 bg-[#007A5E] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#00624C] shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2 group font-poppins">
-                Contact us
+                Contact Us
               </h2>
             </div>
 
@@ -33,7 +33,7 @@ const Footer = () => {
                   <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                 </svg>
-                <span className="ml-2 text-base">E-mail: vista@nitj.ac.in</span>
+                <span className="ml-2 text-base">Email: vista@nitj.ac.in</span>
               </li>
 
               <li className="flex items-start">
@@ -52,7 +52,7 @@ const Footer = () => {
                   <circle cx="12" cy="7" r="4" />
                 </svg>
                 <span className="ml-2 text-base">
-                  Dr Nitesh Kashyap (Organizing Secretary): +91 9753301930
+                  Dr. Nitesh Kashyap (Organizing Secretary): +91 97533 01930
                 </span>
               </li>
 
@@ -72,11 +72,11 @@ const Footer = () => {
                   <circle cx="12" cy="7" r="4" />
                 </svg>
                 <span className="ml-2 text-base">
-                  Dr Rohit Singh (Organizing Chairman): +91 7087513174
+                  Dr. Rohit Singh (Organizing Chairman): +91 70875 13174
                 </span>
               </li>
 
-              <li className="mt-20 flex items-center">
+              <li className="flex items-start">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -92,26 +92,32 @@ const Footer = () => {
                   <circle cx="12" cy="7" r="4" />
                 </svg>
                 <span className="ml-2 text-base">
-                  Dr. Aijaz Mehdi Zaidi (Organising Chairman): +91 01815032621
+                  Dr. Aijaz Mehdi Zaidi (Organizing Chairman): +91 0181–5032621
                 </span>
               </li>
             </ul>
           </div>
 
           {/* Flag Counter */}
-          <a href="https://info.flagcounter.com/8LP0">
-            <img
-              src="https://s01.flagcounter.com/count2/8LP0/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
-              alt="Flag Counter"
-              border="0"
-            />
-          </a>
+          <div className="flex flex-col items-center">
+            <h2 className="text-[#007A5E] font-semibold text-lg mb-4">
+              Global Visitors
+            </h2>
+            <a href="https://info.flagcounter.com/8LP0">
+              <img
+                src="https://s01.flagcounter.com/count2/8LP0/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
+                alt="Flag Counter"
+                border="0"
+              />
+            </a>
+          </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="mt-12 pt-8 border-t border-gray-400/30 text-center">
           <p className="text-xs">
-            Developed and Maintained by{" "}
+            © 2025 Dr B R Ambedkar National Institute of Technology, Jalandhar |{" "}
+            Developed & Maintained by{" "}
             <a
               href="https://xceed.nitj.ac.in"
               target="_blank"
