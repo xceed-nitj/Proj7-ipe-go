@@ -77,7 +77,7 @@ const Timeline = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className="bg-white container w-full flex flex-col items-center mx-auto px-5 sm:px-10 py-12"
+      className="bg-white container w-full flex-col items-center mx-auto px-2 sm:px-20 py-12"
       style={{ backgroundImage: `linear-gradient(180deg, ${THEME.softWhite}, ${THEME.softMint})` }}
     >
       <div className="w-full max-w-6xl">
@@ -90,7 +90,7 @@ const Timeline = forwardRef((props, ref) => {
             }}
             aria-label="Timeline"
           >
-            Timeline of GLOGIFT2026
+            Important Dates
           </button>
         </div>
 
