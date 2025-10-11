@@ -2,7 +2,7 @@ import { Mail, User } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-blue-950 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+    <footer className="relative overflow-hidden border-t border-green-950 bg-gradient-to-br from-slate-900 via-green-900 to-slate-900 text-white">
       {/* ===== Animated Wave Background ===== */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <svg
@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
 
       {/* ===== Footer Content ===== */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-2 flex flex-col gap-12">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-4 flex flex-col gap-2">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
           {/* ---- Contact Info ---- */}
           <div className="relative rounded-3xl bg-white/10 backdrop-blur-sm p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10">
