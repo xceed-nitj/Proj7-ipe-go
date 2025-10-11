@@ -105,7 +105,7 @@ function AboutConf({ confid }) {
       initial={{ opacity: 0, x: 200 }}
       animate={isVisible ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 1.2, ease: "easeOut" }}
-      className="min-h-screen w-full bg-[#D9E0DE] flex flex-col items-center justify-center py-6 px-6 md:px-12 rounded-xl overflow-hidden"
+      className="w-full bg- flex flex-col items-center justify-center py-1 px-1 md:px-12 rounded-xl overflow-hidden"
     >
       {/* Title */}
       <motion.div
@@ -125,7 +125,7 @@ function AboutConf({ confid }) {
         initial={{ opacity: 0, y: 80 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
-        className="w-full max-w-7xl bg-white rounded-3xl shadow-lg border border-[#E0EDE4] overflow-hidden p-6 md:p-10"
+        className="w-full max-w-7xl bg-white rounded-3xl shadow-lg border border-[#E0EDE4] overflow-hidden p-1 md:p-10"
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10 items-center">
           {/* Slider */}

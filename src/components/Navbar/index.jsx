@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Upload, Globe, Users, FileText, DollarSign, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion"; // ✅ Add this
+
 
 export default function NavbarGreenTheme() {
   const { pathname } = useLocation();
@@ -18,7 +20,6 @@ export default function NavbarGreenTheme() {
         { label: "International Advisory Committee", href: "/68e9f2c0413c437a3accccb6", icon: <Globe className="w-4 h-4" /> },
         { label: "National Advisory Committee", href: "/68e9f481413c437a3accce2b", icon: <Users className="w-4 h-4" /> },
         { label: "Technical Committee", href: "/68e9f498413c437a3accce4d", icon: <FileText className="w-4 h-4" /> },
-        // { label: "Other Committees", href: "/68adcce3e8f579b7ff66332a", icon: <Users className="w-4 h-4" /> },
       ],
     },
     { label: "Paper Submission", href: "/68e9f4cf413c437a3accce8f" },
@@ -39,16 +40,16 @@ export default function NavbarGreenTheme() {
 
   return (
     <header className="sticky top-0 z-50 font-jost backdrop-blur-md bg-[#F6F8F5]/95 border-b border-[#D8E3DD] shadow-sm">
-      <div className="max-w-[1300px] mx-auto flex items-center justify-between h-12 px-6">
+      <div className="max-w-[1300px] mx-auto flex items-center justify-between h-12 px-4 sm:px-6 md:px-6">
         {/* LEFT SECTION - LOGO + NAV */}
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-4 sm:space-x-8">
           {/* LOGO */}
-          <Link to="/" className="text-xl font-bold tracking-wide text-[#1B4332] flex-shrink-0">
+          <Link to="/" className="text-xl sm:text-2xl font-bold tracking-wide text-[#1B4332] flex-shrink-0">
             GLOGIFT <span className="text-[#2D6A4F]">2026</span>
           </Link>
 
-          {/* NAV ITEMS */}
-          <nav className="hidden md:flex items-center gap-2">
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-2 sm:gap-4">
             {navItems.map((it, index) =>
               it.subItems ? (
                 <div
@@ -65,7 +66,7 @@ export default function NavbarGreenTheme() {
 
                   {/* Dropdown */}
                   <div
-                    className={`absolute left-0 top-full mt-0 w-56 rounded-lg bg-white border border-[#D8E3DD] shadow-md p-2 transition-all duration-200 ${
+                    className={`absolute left-0 top-full mt-1 w-56 rounded-lg bg-white border border-[#D8E3DD] shadow-md p-2 transition-all duration-200 ${
                       hoveredGroup === index
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 translate-y-1 pointer-events-none"
@@ -90,9 +91,7 @@ export default function NavbarGreenTheme() {
                   {it.label}
                   <span
                     className={`absolute left-3 right-3 -bottom-1 h-0.5 bg-[#95D5B2] rounded-full origin-left transition-transform duration-200 ${
-                      isActive(it.href)
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
+                      isActive(it.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
                 </Link>
@@ -104,7 +103,7 @@ export default function NavbarGreenTheme() {
         {/* RIGHT SECTION - BUTTON */}
         <Link
           to="/68adccc0e8f579b7ff66327d"
-          className="hidden md:inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-jost text-white bg-[#2D6A4F] rounded-lg hover:bg-[#40916C] transition-all duration-300"
+          className="hidden md:inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 text-sm font-jost text-white bg-[#2D6A4F] rounded-lg hover:bg-[#40916C] transition-all duration-300"
         >
           <Upload className="w-4 h-4" />
           Submit Paper
@@ -128,66 +127,69 @@ export default function NavbarGreenTheme() {
       </div>
 
       {/* MOBILE MENU */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-[#D8E3DD] bg-[#F6F8F5]/95">
-          <nav className="mx-4 my-3 rounded-2xl border border-[#D8E3DD] p-2 space-y-1 shadow-sm">
-            {navItems.map((it, i) =>
-              it.subItems ? (
-                <div key={it.label} className="rounded-xl overflow-hidden">
-                  <button
-                    onClick={() => setOpenGroup(openGroup === i ? null : i)}
-                    className="w-full flex items-center justify-between px-3 py-2 text-left rounded-xl text-[#1B4332] hover:bg-[#E9F5EF]"
-                  >
-                    <span className="text-sm font-semibold">{it.label}</span>
-                    <ChevronDown
-                      className={`h-4 w-4 text-[#2D6A4F] transition-transform ${
-                        openGroup === i ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {openGroup === i && (
-                    <div className="pb-1">
-                      {it.subItems.map((s) => (
-                        <Link
-                          key={s.label}
-                          to={s.href}
-                          onClick={() => setMobileOpen(false)}
-                          className={`flex items-center gap-2 mx-2 my-1 px-3 py-2 rounded-lg text-sm text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
-                            isActive(s.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
-                          }`}
-                        >
-                          {s.icon}
-                          {s.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={it.label}
-                  to={it.href || "/"}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2 rounded-xl text-sm font-semibold text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
-                    isActive(it.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
-                  }`}
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="md:hidden overflow-hidden border-t border-[#D8E3DD] bg-[#F6F8F5]/95"
+      >
+        <nav className="mx-4 my-3 rounded-2xl border border-[#D8E3DD] p-2 space-y-1 shadow-sm">
+          {navItems.map((it, i) =>
+            it.subItems ? (
+              <div key={it.label} className="rounded-xl overflow-hidden">
+                <button
+                  onClick={() => setOpenGroup(openGroup === i ? null : i)}
+                  className="w-full flex items-center justify-between px-3 py-2 text-left rounded-xl text-[#1B4332] hover:bg-[#E9F5EF]"
                 >
-                  {it.label}
-                </Link>
-              )
-            )}
+                  <span className="text-sm font-semibold">{it.label}</span>
+                  <ChevronDown
+                    className={`h-4 w-4 text-[#2D6A4F] transition-transform ${
+                      openGroup === i ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {openGroup === i && (
+                  <div className="pb-1">
+                    {it.subItems.map((s) => (
+                      <Link
+                        key={s.label}
+                        to={s.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center gap-2 mx-2 my-1 px-3 py-2 rounded-lg text-sm text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
+                          isActive(s.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
+                        }`}
+                      >
+                        {s.icon}
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={it.label}
+                to={it.href || "/"}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-3 py-2 rounded-xl text-sm font-semibold text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
+                  isActive(it.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
+                }`}
+              >
+                {it.label}
+              </Link>
+            )
+          )}
 
-            <Link
-              to="/68adccc0e8f579b7ff66327d"
-              onClick={() => setMobileOpen(false)}
-              className="mt-3 flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-[#2D6A4F] rounded-full hover:bg-[#40916C] transition-all duration-300"
-            >
-              <Upload className="w-4 h-4" />
-              Submit Paper
-            </Link>
-          </nav>
-        </div>
-      )}
+          <Link
+            to="/68adccc0e8f579b7ff66327d"
+            onClick={() => setMobileOpen(false)}
+            className="mt-3 flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-[#2D6A4F] rounded-full hover:bg-[#40916C] transition-all duration-300"
+          >
+            <Upload className="w-4 h-4" />
+            Submit Paper
+          </Link>
+        </nav>
+      </motion.div>
     </header>
   );
 }

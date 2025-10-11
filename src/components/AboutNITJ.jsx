@@ -73,10 +73,9 @@ function AboutNITJ({ confid }) {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="relative w-full flex flex-col justify-center items-center py-20 px-6 overflow-hidden rounded-xl bg-[#DEE3E1] mb-40"
+      className="relative w-full flex flex-col justify-center items-center py-1 px-1 overflow-hidden rounded-xl "
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/bgpattern.svg')] bg-cover opacity-10" />
 
       {/* Title Section */}
       <motion.div
@@ -84,9 +83,9 @@ function AboutNITJ({ confid }) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-center mb-14 relative z-10"
+        className="text-center mb-8 relative z-10"
       >
-        <h2 className="text-[#1B4332] text-3xl sm:text-4xl md:text-5xl font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
+        <h2 className="text-[#1B4332] text-2xl sm:text-3xl  font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
           <span className="block">About</span>
           <span className="block text-[#2D6A4F] mt-2">
             Dr B R Ambedkar National Institute of Technology
@@ -108,7 +107,7 @@ function AboutNITJ({ confid }) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         viewport={{ once: true }}
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-6 sm:p-8 lg:p-12 hover:shadow-[0_12px_60px_rgba(0,0,0,0.25)] transition-all duration-700 ease-out"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl  p-6 sm:p-8 lg:p-12  transition-all duration-700 ease-out"
       >
         {/* Slider Section - moves above text in mobile */}
         <motion.div

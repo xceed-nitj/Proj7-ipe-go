@@ -13,7 +13,7 @@ export default function Hero2() {
 
       {/* --- Hero Section --- */}
       <div className="bg-[#f8faf9] p-4 sm:p-8 md:p-4">
-        <section className="relative rounded-3xl overflow-hidden min-h-[80vh] bg-gradient-to-br from-[#F0F7F4] via-[#FAFDFB] to-[#E7F2EE] border border-[#E2EAE7] shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex items-center justify-center transition-all duration-500">
+        <section className="relative rounded-3xl overflow-hidden min-h-[90vh] bg-gradient-to-br from-[#F0F7F4] via-[#FAFDFB] to-[#E7F2EE] border border-[#E2EAE7] shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex items-center justify-center transition-all duration-500">
           
           {/* --- Background Image --- */}
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
