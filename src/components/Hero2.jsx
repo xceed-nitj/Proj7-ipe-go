@@ -33,7 +33,7 @@ export default function Hero2() {
           </div>
 
           {/* --- Main Content --- */}
-          <main className="relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-10 py-10">
+          <main className="relative z-10 h-full flex flex-col justify-center items-center px-4 sm:px-10 py-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full items-center">
               
               {/* ---------- LEFT SIDE ---------- */}
@@ -47,7 +47,7 @@ export default function Hero2() {
                     loading="lazy"
                   />
                   <img
-                    src="/glo.jpg"
+                    src="/glo.png"
                     alt="GLOGIFT"
                     className="h-10 sm:h-14 w-auto object-contain"
                     loading="lazy"
@@ -71,7 +71,7 @@ export default function Hero2() {
 
                 <div className="flex flex-col gap-1 text-[#2C3E50] text-sm sm:text-base">
                   <p>
-                    <strong>Dates:</strong> December 16 – 18, 2026
+                    <strong>December 16 – 18, 2026</strong> 
                   </p>
                   <div className="flex items-center gap-2">
                     <svg

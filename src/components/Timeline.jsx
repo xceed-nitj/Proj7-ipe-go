@@ -1,316 +1,349 @@
 // src/components/Timeline.jsx
-
 import axios from "axios";
 import getEnvironment from "../getenvironment";
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect, forwardRef, useMemo } from "react";
 import formatDate from "../utility/formatDate";
-import { motion } from "framer-motion";
+
+const THEME = {
+  primary: "#007A5E",        // conference green
+  primaryDark: "#00624C",
+  accent: "#1D2A26",         // deep ink
+  softMint: "#E7F2EE",
+  softWhite: "#FAFDFB",
+  gold: "#b08900",
+};
 
 const Timeline = forwardRef((props, ref) => {
   const { confid } = props;
+
   const [datesData, setDatesData] = useState([]);
   const [apiUrl, setApiUrl] = useState(null);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   useEffect(() => {
+    setStatus("loading");
     getEnvironment().then((url) => setApiUrl(url));
   }, []);
 
   useEffect(() => {
     if (!apiUrl) return;
-
+    setStatus("loading");
     axios
       .get(`${apiUrl}/conferencemodule/eventDates/conference/${confid}`, {
         withCredentials: true,
       })
-      .then((res) => setDatesData(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        setDatesData(res.data || []);
+        setStatus("success");
+      })
+      .catch((err) => {
+        console.error(err);
+        setStatus("error");
+      });
   }, [apiUrl, confid]);
 
-  // Color scheme for timeline items
-  const colorSchemes = [
-    { bg: 'bg-cyan-400', icon: 'text-white', gradient: 'from-cyan-400 to-cyan-500' },
-    { bg: 'bg-yellow-400', icon: 'text-gray-800', gradient: 'from-yellow-400 to-yellow-500' },
-    { bg: 'bg-green-400', icon: 'text-white', gradient: 'from-green-400 to-green-500' },
-    { bg: 'bg-orange-400', icon: 'text-white', gradient: 'from-orange-400 to-orange-500' },
-    { bg: 'bg-blue-400', icon: 'text-white', gradient: 'from-blue-400 to-blue-500' },
-  ];
+  // Choose which date to display (newDate when extended)
+  const normalized = useMemo(() => {
+    return (datesData || []).map((d) => {
+      const displayDate = d.extended && d.newDate ? d.newDate : d.date;
+      return { ...d, displayDate };
+    });
+  }, [datesData]);
 
-  // Icon components for different timeline items
-  const getIcon = (index) => {
-    const icons = [
-      // Lightbulb for IDEAS
-      <svg key="lightbulb" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
-      </svg>,
-      // Document for STRATEGY
-      <svg key="document" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-        <path d="M8 12h8v2H8zm0 3h8v2H8zm0-6h5v2H8z"/>
-      </svg>,
-      // Chart for PITCH
-      <svg key="chart" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-5h2v3h5v2zm3-4h-2V7h-2v2h-2V7H9v6H7V7c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v6z"/>
-      </svg>,
-      // People for CONTACT
-      <svg key="people" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.5 7h-5A1.5 1.5 0 0 0 12.04 8.37L9.5 16H12v6h8zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-6H10l-2.54-7.63A1.5 1.5 0 0 0 6 7H1a1.5 1.5 0 0 0-1.46 1.37L-3 16h2.5v6h8z"/>
-      </svg>,
-      // Handshake for NEGOTIATE
-      <svg key="handshake" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M17.5 12c0-.28-.22-.5-.5-.5s-.5.22-.5.5.22.5.5.5.5-.22.5-.5zm-3-4c0-.28-.22-.5-.5-.5s-.5.22-.5.5.22.5.5.5.5-.22.5-.5zM23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 2.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-      </svg>
-    ];
-    
-    return icons[index % icons.length];
+  // Sort by display date ascending
+  const sorted = useMemo(() => {
+    return [...normalized].sort(
+      (a, b) => new Date(a.displayDate) - new Date(b.displayDate)
+    );
+  }, [normalized]);
+
+  // simple “today/upcoming/past” helper
+  const now = new Date();
+  const getPhase = (iso) => {
+    const when = new Date(iso);
+    if (when.toDateString() === now.toDateString()) return "today";
+    return when > now ? "upcoming" : "past";
   };
 
+  // UI helpers
+  const Dot = ({ idx }) => (
+    <div
+      className={`w-6 h-6 rounded-full border-4 border-white shadow-lg z-20
+        ${idx % 2 === 0 ? "bg-[#0A8A6F]" : "bg-[#0E5F4E]"}`}
+      aria-hidden="true"
+    />
+  );
+
   return (
-    <motion.div
+    <div
       ref={ref}
-      className="relative section-spacing py-10  sm:py-16 md:py-24 w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
+      className="bg-white container w-full flex flex-col items-center mx-auto px-5 sm:px-10 py-12"
+      style={{ backgroundImage: `linear-gradient(180deg, ${THEME.softWhite}, ${THEME.softMint})` }}
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-            backgroundSize: '50px 50px'
-          }}></div>
+      <div className="w-full max-w-6xl">
+        {/* Title */}
+        <div className="text-center mb-10">
+          <button
+            className="rounded-3xl px-6 py-3 text-white font-semibold text-xl sm:text-2xl shadow-sm"
+            style={{
+              backgroundImage: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryDark})`,
+            }}
+            aria-label="Timeline"
+          >
+            Timeline
+          </button>
         </div>
-      </div>
 
-      <div className="w-full mx-auto px-4 sm:px-6 relative z-10">
-        {/* Title Section */}
-        <motion.div 
-          className="text-center mb-8 sm:mb-12 md:mb-20"
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.div 
-            className="inline-block"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-3 relative inline-block">
-              Conference Timeline
-              <motion.div 
-                className="absolute -bottom-2 sm:-bottom-3 left-0 w-full h-1 sm:h-1.5 bg-gradient-to-r from-pink-500 to-pink-400 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              ></motion.div>
-            </h2>
-          </motion.div>
-          <p className="text-sm sm:text-base text-gray-300 mt-4 max-w-xl mx-auto">
-            Mark your calendar for these key dates to stay on track with the conference timeline
-          </p>
-          <motion.div
-            className="mt-6 inline-block bg-gradient-to-r from-pink-500 to-pink-400 text-white px-6 py-2 rounded-full text-medium font-large h-2xl"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 400, delay: 0.5 }}
-          >
-            IMPORTANT DATES
-          </motion.div>
-        </motion.div>
+        {/* Loading / Error / Empty */}
+        {status === "loading" && (
+          <div className="w-full flex flex-col items-center gap-4 py-12">
+            <div className="w-12 h-12 rounded-full border-4 border-gray-200 border-t-[4px]" style={{ borderTopColor: THEME.primary }} />
+            <p className="text-gray-600">Loading important dates…</p>
+          </div>
+        )}
 
-        {/* Timeline Container */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Central Timeline Line - Desktop: Tube, Mobile: Left line */}
-          <motion.div 
-            className="absolute md:left-1/2 left-6 top-0 bottom-0 md:w-12 md:sm:w-16 w-1 md:bg-gradient-to-b md:from-gray-200 md:via-gray-100 md:to-gray-200 bg-gray-300 md:rounded-full md:transform md:-translate-x-1/2 z-10 md:shadow-inner"
-            initial={{ height: 0 }}
-            whileInView={{ height: "100%" }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-          >
-            <div className="absolute inset-0 md:bg-gradient-to-b md:from-transparent md:via-white/20 md:to-transparent md:rounded-full"></div>
-          </motion.div>
+        {status === "error" && (
+          <div className="w-full text-center py-10">
+            <p className="text-red-600 font-medium">Couldn’t load the timeline right now.</p>
+            <p className="text-gray-600 text-sm">Please refresh or check your connection.</p>
+          </div>
+        )}
 
-          {/* Timeline Items */}
-          {datesData.map((item, idx) => {
-            const colorScheme = colorSchemes[idx % colorSchemes.length];
-            const isLeft = idx % 2 === 0;
-            const titleColors = [
-              'text-cyan-300',
-              'text-yellow-300',
-              'text-green-300',
-              'text-orange-300',
-              'text-blue-300',
-            ];
-            const titleColor = titleColors[idx % titleColors.length];
-            
-            return (
-              <motion.div
-                key={idx}
-                className="relative flex items-center mb-12 sm:mb-20 group min-h-[140px]"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                {/* Timeline Circle Icon */}
-                <motion.div
-                  className="absolute top-1/2 transform -translate-y-1/2 z-20 md:left-[calc(47.6%-1px)] left-3"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 400, 
-                    damping: 15,
-                    delay: 0.3 + idx * 0.15 
-                  }}
-                >
-                  <div 
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colorScheme.bg} shadow-2xl flex items-center justify-center transition-all duration-300 ${
-                      hoveredIndex === idx ? "scale-110" : "scale-100"
-                    } border-2 border-white`}
-                  >
-                    <div className={`${colorScheme.icon} transform transition-transform duration-300 ${
-                      hoveredIndex === idx ? "scale-110" : "scale-100"
-                    }`}>
-                      {getIcon(idx)}
+        {status === "success" && sorted.length === 0 && (
+          <div className="w-full text-center py-10">
+            <p className="text-gray-700">No timeline items are available yet.</p>
+          </div>
+        )}
+
+        {status === "success" && sorted.length > 0 && (
+          <>
+            {/* Mobile: Vertical timeline (left-aligned spine, right cards) */}
+            <div className="md:hidden relative py-8 pl-4">
+              {/* Spine */}
+              <div
+                className="absolute left-8 top-0 bottom-0 w-1.5 z-0 rounded-full"
+                style={{
+                  backgroundImage: `linear-gradient(180deg, ${THEME.primary}, ${THEME.accent})`,
+                }}
+                aria-hidden="true"
+              />
+
+              <div className="relative space-y-10">
+                {sorted.map((item, idx) => {
+                  const phase = getPhase(item.displayDate);
+                  return (
+                    <div key={idx} className="relative z-10 pl-16">
+                      {/* Dot – centered on spine */}
+                      <div
+                        className="absolute w-6 h-6 rounded-full border-4 border-white shadow-lg z-20"
+                        style={{
+                          left: 32,
+                          top: "1.25rem",
+                          transform: "translate(-50%, -50%)",
+                          background:
+                            idx % 2 === 0
+                              ? "linear-gradient(135deg, #0A8A6F, #0E5F4E)"
+                              : "linear-gradient(135deg, #0E5F4E, #0A8A6F)",
+                        }}
+                        aria-hidden="true"
+                      />
+
+                      {/* Event Title */}
+                      <div
+                        className="px-4 py-3 rounded-lg shadow-md mb-2 text-white"
+                        style={{
+                          backgroundImage: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryDark})`,
+                        }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-semibold text-sm leading-tight flex-1">
+                            {item.title}
+                          </h4>
+                          {item.extended && (
+                            <span
+                              className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
+                              style={{ backgroundColor: THEME.softWhite, color: THEME.primary }}
+                            >
+                              Extended
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Date Card */}
+                      <div
+                        className="px-4 py-2 rounded-lg shadow-sm border"
+                        style={{
+                          backgroundColor: "#F5FBF9",
+                          borderColor: THEME.softMint,
+                          color: THEME.accent,
+                        }}
+                      >
+                        {!item.extended ? (
+                          <p className="font-bold text-sm">{formatDate(item.displayDate)}</p>
+                        ) : (
+                          <>
+                            <p className="font-bold text-sm">{formatDate(item.displayDate)}</p>
+                            <p className="text-sm line-through opacity-70">{formatDate(item.date)}</p>
+                          </>
+                        )}
+                        {/* Phase chip */}
+                        <div className="mt-1">
+                          <span
+                            className="inline-block text-[10px] px-2 py-0.5 rounded-full"
+                            style={{
+                              backgroundColor:
+                                phase === "upcoming"
+                                  ? THEME.softMint
+                                  : phase === "today"
+                                  ? "#fff7cc"
+                                  : "#f3f4f6",
+                              color:
+                                phase === "upcoming"
+                                  ? THEME.primary
+                                  : phase === "today"
+                                  ? THEME.gold
+                                  : "#6b7280",
+                              border: "1px solid rgba(0,0,0,0.05)",
+                            }}
+                          >
+                            {phase === "today" ? "Today" : phase.charAt(0).toUpperCase() + phase.slice(1)}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Connector from card back to spine */}
+                      <div
+                        className="absolute left-0 top-5 h-0.5"
+                        style={{
+                          width: 16,
+                          transform: "translateY(-50%)",
+                          backgroundColor: THEME.primary,
+                          opacity: 0.2,
+                        }}
+                        aria-hidden="true"
+                      />
                     </div>
-                  </div>
-                </motion.div>
+                  );
+                })}
+              </div>
+            </div>
 
-                {/* Desktop Layout - Alternating sides */}
-                <div className="hidden md:flex w-full">
-                  {/* Content Block - Left Side */}
-                  {isLeft && (
-                    <motion.div
-                      className="w-[calc(50%-60px)] pr-8 text-right"
-                      whileHover={{ x: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <h3 className={`font-extrabold text-lg sm:text-xl tracking-wide ${titleColor}`}>
-                        {(item.title || '').toUpperCase()}
-                      </h3>
-                      {item.description && (
-                        <p className="text-gray-300 text-sm sm:text-base mt-2">
-                          {item.description}
-                        </p>
-                      )}
-                      {!item.extended ? (
-                        <div className="mt-3 flex justify-end">
-                          <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm shadow">
-                            {formatDate(item.date)}
-                          </span>
-                        </div>
-                      ) : (
-                        <div className="mt-3 space-y-2">
-                          <div className="flex justify-end items-center">
-                            <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm shadow mr-2">
-                              {formatDate(item.newDate)}
-                            </span>
-                            <span className="text-pink-300 text-xs">Extended</span>
-                          </div>
-                          <div className="flex justify-end">
-                            <span className="inline-block text-gray-400 line-through text-xs sm:text-sm">
-                              {formatDate(item.date)}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-
-                  {/* Content Block - Right Side */}
-                  {!isLeft && (
-                    <motion.div
-                      className="w-[calc(50%-60px)] pl-8 ml-auto text-left"
-                      whileHover={{ x: 10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <h3 className={`font-extrabold text-lg sm:text-xl tracking-wide ${titleColor}`}>
-                        {(item.title || '').toUpperCase()}
-                      </h3>
-                      {item.description && (
-                        <p className="text-gray-300 text-sm sm:text-base mt-2">
-                          {item.description}
-                        </p>
-                      )}
-                      {!item.extended ? (
-                        <div className="mt-3">
-                          <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm shadow">
-                            {formatDate(item.date)}
-                          </span>
-                        </div>
-                      ) : (
-                        <div className="mt-3 space-y-2">
-                          <div className="flex items-center">
-                            <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm shadow mr-2">
-                              {formatDate(item.newDate)}
-                            </span>
-                            <span className="text-pink-300 text-xs">Extended</span>
-                          </div>
-                          <span className="inline-block text-gray-400 line-through text-xs sm:text-sm">
-                            {formatDate(item.date)}
-                          </span>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
+            {/* Desktop/Tablet: Horizontal alternating timeline */}
+          {/* Desktop/Tablet: Horizontal alternating timeline */}
+            <div className="hidden md:block relative pb-36 pt-28">
+              <div className="flex items-center justify-between relative h-24">   {/* Bar */}
+                <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 z-0 px-2">
+                  <div
+                    className="w-full h-2 rounded-full"
+                    style={{
+                      backgroundImage: `linear-gradient(90deg, ${THEME.primary}, ${THEME.primaryDark})`,
+                    }}
+                    aria-hidden="true"
+                  />
                 </div>
 
-                {/* Mobile Layout - All content on right side */}
-                <div className="md:hidden w-full pl-16">
-                  <motion.div
-                    className="text-left"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h3 className={`font-extrabold text-lg tracking-wide ${titleColor}`}>
-                      {(item.title || '').toUpperCase()}
-                    </h3>
-                    {item.description && (
-                      <p className="text-gray-300 text-sm mt-2">
-                        {item.description}
-                      </p>
-                    )}
-                    {!item.extended ? (
-                      <div className="mt-3">
-                        <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs shadow">
-                          {formatDate(item.date)}
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="mt-3 space-y-2">
-                        <div className="flex items-center">
-                          <span className="inline-block bg-pink-500 text-white px-4 py-1.5 rounded-full text-xs shadow mr-2">
-                            {formatDate(item.newDate)}
-                          </span>
-                          <span className="text-pink-300 text-xs">Extended</span>
+                {/* Events */}
+                {sorted.map((item, idx) => {
+                  const phase = getPhase(item.displayDate);
+                  return (
+                    <div key={idx} className="relative flex-1 flex flex-col items-center z-10">
+                      {/* Card container alternating above/below the bar */}
+                      <div
+                        className={`absolute ${idx % 2 === 0 ? "bottom-16" : "top-16"} w-56 transition-transform duration-300 hover:-translate-y-1`}
+                      >
+                        {/* Title */}
+                        <div
+                          className="px-4 py-3 rounded-lg shadow-md text-center mb-2 text-white"
+                          style={{
+                            backgroundImage: `linear-gradient(135deg, ${THEME.primary}, ${THEME.primaryDark})`,
+                          }}
+                        >
+                          <div className="flex items-center justify-center gap-2">
+                            <h4 className="font-semibold text-sm leading-tight">{item.title}</h4>
+                            {item.extended && (
+                              <span
+                                className="text-[10px] px-2 py-0.5 rounded-full font-semibold"
+                                style={{ backgroundColor: THEME.softWhite, color: THEME.primary }}
+                              >
+                                Extended
+                              </span>
+                            )}
+                          </div>
                         </div>
-                        <span className="inline-block text-gray-400 line-through text-xs">
-                          {formatDate(item.date)}
-                        </span>
+
+                        {/* Date */}
+                        <div
+                          className="px-4 py-2 rounded-lg shadow-sm text-center border"
+                          style={{ backgroundColor: "#F5FBF9", borderColor: THEME.softMint }}
+                        >
+                          {!item.extended ? (
+                            <p className="font-bold text-sm">{formatDate(item.displayDate)}</p>
+                          ) : (
+                            <>
+                              <p className="font-bold text-sm">{formatDate(item.displayDate)}</p>
+                              <p className="text-sm line-through opacity-70">{formatDate(item.date)}</p>
+                            </>
+                          )}
+
+                          {/* Phase chip */}
+                          <div className="mt-1">
+                            <span
+                              className="inline-block text-[10px] px-2 py-0.5 rounded-full"
+                              style={{
+                                backgroundColor:
+                                  phase === "upcoming"
+                                    ? THEME.softMint
+                                    : phase === "today"
+                                    ? "#fff7cc"
+                                    : "#f3f4f6",
+                                color:
+                                  phase === "upcoming"
+                                    ? THEME.primary
+                                    : phase === "today"
+                                    ? THEME.gold
+                                    : "#6b7280",
+                                border: "1px solid rgba(0,0,0,0.05)",
+                              }}
+                            >
+                              {phase === "today" ? "Today" : phase.charAt(0).toUpperCase() + phase.slice(1)}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Connector */}
+                        <div
+                          className={`absolute left-1/2 -translate-x-1/2 w-0.5 ${idx % 2 === 0 ? "top-full h-6" : "bottom-full h-6"}`}
+                          style={{ backgroundColor: "rgba(0,0,0,0.12)" }}
+                          aria-hidden="true"
+                        />
                       </div>
-                    )}
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+
+                      {/* Dot on the bar */}
+                      <Dot idx={idx} />
+
+                      {/* Small triangle pointer (kept subtle to match theme) */}
+                      <div
+                        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 z-30 ${
+                          idx % 2 === 0
+                            ? "border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px]"
+                            : "border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[8px]"
+                        }`}
+                        style={{
+                          borderTopColor: idx % 2 === 0 ? "#0A8A6F" : "transparent",
+                          borderBottomColor: idx % 2 !== 0 ? "#0E5F4E" : "transparent",
+                        }}
+                        aria-hidden="true"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
       </div>
-    </motion.div>
+    </div>
   );
 });
 
