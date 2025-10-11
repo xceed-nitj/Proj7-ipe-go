@@ -52,14 +52,14 @@ export default function Hero2() {
                     className="h-10 sm:h-14 w-auto object-contain"
                     loading="lazy"
                   />
-                  <span className="text-[#007A5E] font-bold text-lg sm:text-2xl">
+                  <span className="text-[#007A5E] font-bold text-[2vw] sm:text-2xl">
                     GLOGIFT&nbsp;2026
                   </span>
                 </div>
 
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1D2A26] leading-snug">
+                <h1 className="text-2xl sm:text-4xl lg:text-3vw font-bold text-[#1D2A26] leading-snug">
                   26<sup>th</sup> Global Conference on{" "}
-                  <span className="text-[#007A5E]">Flexible Systems Management</span>
+                  <span className="text-[#007A5E] text-3vw">Flexible Systems Management</span>
                 </h1>
 
                 <p className="text-lg sm:text-xl text-[#4E605A] font-medium">

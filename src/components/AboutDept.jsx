@@ -9,7 +9,6 @@ const sliderData = [
   { image: "/ece3.png", label: "" },
 ];
 
-// --- Image Slider Component ---
 function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -38,7 +37,6 @@ function Slider() {
   );
 }
 
-// --- About Department Component ---
 function AboutDept({ confid }) {
   const [apiUrl, setApiUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -68,15 +66,14 @@ function AboutDept({ confid }) {
 
   return (
     <motion.section
-      initial={{ opacity: 0, x: 120 }}
+      initial={{ opacity: 0, x: -120 }} // <-- changed to negative for left
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true }}
       className="relative w-full flex flex-col justify-center items-center py-1 px-1 overflow-hidden rounded-xl "
     >
-      {/* Title Section */}
       <motion.div
-        initial={{ opacity: 0, x: 80 }}
+        initial={{ opacity: 0, x: -80 }} // <-- changed to negative
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
@@ -84,7 +81,9 @@ function AboutDept({ confid }) {
       >
         <h2 className="text-[#1B4332] text-2xl sm:text-3xl font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
           <span className="block">About the Department of</span>
-          <span className="block text-[#2D6A4F] mt-2">Electronics and Communication Engineering</span>
+          <span className="block text-[#2D6A4F] mt-2">
+            Electronics and Communication Engineering
+          </span>
           <span className="block text-[#081C15]">NIT Jalandhar</span>
         </h2>
         <motion.div
@@ -96,15 +95,13 @@ function AboutDept({ confid }) {
         />
       </motion.div>
 
-      {/* Content Card */}
       <motion.div
-        initial={{ opacity: 0, x: 100 }}
+        initial={{ opacity: 0, x: -100 }} // <-- changed to negative
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         viewport={{ once: true }}
         className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl p-6 sm:p-8 lg:p-12 transition-all duration-700 ease-out"
       >
-        {/* Slider Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +112,6 @@ function AboutDept({ confid }) {
           <Slider />
         </motion.div>
 
-        {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +141,6 @@ function AboutDept({ confid }) {
         </motion.div>
       </motion.div>
 
-      {/* Subtle Bottom Glow */}
       <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[70%] h-64 bg-gradient-to-t from-[#52B788]/40 to-transparent blur-3xl pointer-events-none"></div>
     </motion.section>
   );

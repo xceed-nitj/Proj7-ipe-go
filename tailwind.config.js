@@ -34,5 +34,15 @@ export default {
       },
     },
   },
+      screens: {
+      'xl': '1280px',
+      'lg': '1024px',
+      'md': '768px',
+      'sm': '640px',
+      'xs': '475px',
+
+      // 👇 Custom breakpoint at 1186px
+      'mobile': { 'max': '1186px' },
+    },
   plugins: [],
 };

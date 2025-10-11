@@ -70,7 +70,7 @@ const Timeline = forwardRef((props, ref) => {
 
         {/* Center Line */}
         <motion.div
-          className="absolute left-1/2 my-5 top-20 bottom-0 w-[2px] bg-emerald-300 rounded-full"
+          className="absolute left-1/2 my-10 top-20 bottom-0 w-[2px] bg-emerald-300 rounded-full"
           initial={{ height: 0 }}
           whileInView={{ height: "95%" }}
           viewport={{ once: true }}
