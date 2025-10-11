@@ -70,8 +70,11 @@ const CommonTemplate = ({ confid }) => {
 
               {/* ===== Description Section ===== */}
               {data ? (
-                <div className="prose prose-lg max-w-none text-gray-800 leading-relaxed sm:leading-loose prose-green prose-headings:text-green-700 prose-a:text-green-600 hover:prose-a:text-green-700">
-                  <div dangerouslySetInnerHTML={{ __html: data.description }} />
+                <div className="overflow-x-auto w-full">
+                  <div
+                    className="min-w-full prose prose-lg max-w-none text-gray-800 leading-relaxed sm:leading-loose prose-green prose-headings:text-green-700 prose-a:text-green-600 hover:prose-a:text-green-700"
+                    dangerouslySetInnerHTML={{ __html: data.description }}
+                  />
                 </div>
               ) : (
                 <div className="animate-pulse space-y-3">

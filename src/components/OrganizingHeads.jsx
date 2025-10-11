@@ -36,94 +36,137 @@ const OrganizingHeads = () => {
 
   const patrons = [
     {
-      name: "Prof. Bhim Singh",
-      position: "Chairman, NIT Jalandhar",
-      image: "bs.jpg",
-      about:
-        "Prof. Bhim Singh has been instrumental in advancing NIT Jalandhar’s academic and research excellence.",
-    },
-  ];
-
-  const coPatrons = [
-    {
       name: "Prof. Binod Kumar Kanaujia",
       position: "Director, NIT Jalandhar",
       image: "director.jpg",
       about:
-        "Prof. Kanaujia is committed to innovation and collaboration in higher education and research.",
+        "Prof. B K Kanaujia has been instrumental in advancing NIT Jalandhar’s academic and research excellence.",
     },
   ];
 
+
   const chairman = [
     {
-      name: "Dr. Ashish Raman",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "ashish_raman.jpg",
+      name: "Prof. (Dr). Rajiv Kumar Garg",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "rv.jpg",
       about:
-        "Dr. Raman specializes in signal processing and has guided numerous research scholars.",
+        "Research Interests: Supply Chain Management, Net Zero Economy, Life Cycle Assessment, Traditional Machining",
     },
     {
-      name: "Dr. Sukwinder Singh",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "sukhwinder.jpg",
+      name: "Prof. (Dr). Anish Sachdeva",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "anish.jpg",
       about:
-        "Dr. Singh’s research focuses on embedded systems and wireless communication.",
+        "Research Interests: Supply Chain Management, Reliability and Maintenance Engineering, Modeling and Simulation, Optimization, and Advanced Manufacturing",
     },
     {
-      name: "Dr. Aijaz Mehdi Zaidi",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "zedimedi.jpg",
+      name: "Prof. (Dr). Arvind Bhardwaj",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "arvind.jpg",
       about:
-        "Dr. Zaidi is known for his contributions to photonics and optical communication systems.",
+        "Research Interests: Supply Chain Management, Operations Management, Human Factors Engineering, Life Cycle Assessment, Technology Management, Theory of Constraints, etc",
     },
     {
-      name: "Dr. Rohit Singh",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "rohit.jpg",
-      about: "Dr. Rohit is an expert in semiconductor devices and VLSI design.",
+      name: "Prof. (Dr). Vishal Sharma",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "vishal.jpg",
+      about: "Research Interests: Additive Manufacturing/3D printing, Machining, Condition monitoring/IIOT/Industry 4.0",
     },
   ];
 
   const secretary = [
     {
-      name: "Dr. Pawan Kumar Verma",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "pkverma.jpg",
+      name: "Dr. Ajay Gupta",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "ajay.jpg",
       about:
-        "Dr. Verma’s research interests include microwave engineering and antennas.",
+        "Research Interests: 	Operations Management Operations Research Theory of Constraints Data Analytics MIS Materials Management Marketing Management Statistics",
     },
     {
-      name: "Dr. Nitesh Kashyap",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "nitesh.jpg",
-      about: "Dr. Kashyap works on IoT and advanced communication technologies.",
+      name: "Dr. Rajeev Tehran",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "rajeev.png",
+      about: "Research Interests: Lean, Six Sigma, Productivity Improvement and Advanced Manufacturing",
     },
     {
-      name: "Dr. Roshan Bodile",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "bodile.jpg",
-      about: "Dr. Bodile focuses on nanoelectronics and material characterization.",
+      name: "Dr. L P Singh",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "lp.jpg",
+      about: "Research Interests: Human Factors Engineering, Ergonomics, Supply Chain Management, Occupational Health and Safety, Additive Manufacturing",
     },
     {
-      name: "Dr. Harimurugan Devarajan",
+      name: "Dr. Rakesh Kumar",
       position: "Electrical Engineering, NIT Jalandhar",
-      image: "hari.jpg",
-      about: "Dr. Harimurugan researches smart grid systems and renewable energy.",
+      image: "rakesh.jpg",
+      about: "Research Interests: 1. Manufacturing Flexibility, Factories of the Future and Design of Manufacturing Systems 2. Engineering Management, Engineering Economics, Industrial Psychology and Entrepreneurship 3. Multi-objective Optimization and Discrete Event Simulation 4. Outcome Based Education (OBE); Engineering Education Optimization",
     },
     {
-      name: "Dr. Kundan Kumar",
-      position: "Electronics and Communication Engineering, NIT Jalandhar",
-      image: "kundan.jpeg",
+      name: "Dr. S. Bhadauria",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "bk.jpg",
       about:
-        "Dr. Kundan specializes in digital communication and machine learning applications.",
+        "Research Interests: Analytical, Experimental and Computational Fracture Mechanics and Stress-life, Stress-life and Multiaxial Fatigue life prediction of weldments, Stress Corrosion Cracking",
+    },
+     {
+      name: "Dr. R. K. Bansal",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "rk.jpg",
+      about:
+        "Research Interests: 1. Statistical Quality Control 2. Project Management 3. Materials Management 4. Operations Management",
+    },
+  ];
+  const orgsecretary = [
+    {
+      name: "Dr. Narendra Kumar",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "ns.jpeg",
+      about:
+        "Research Interest: Additive Manufacturing, 3D Printing Material Development and Characterization, 3D Printed Electronics",
+    },
+    {
+      name: "Dr. Bikash Kumar",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "bk.jpg",
+      about: "Reserach Interest: Metal additive manufacturing, process-structure-properties correlation study, Thermal-metallurgical-mechanical modeling, Advanced welding and Joining process, Coating, Sustainable manufacturing",
+    },
+    {
+      name: "Dr. Rajeev Verma",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "rverma.jpg",
+      about: "Research Interest: Surface Engineering, Thermal Spray Coatings, Laser Surface-Texturing, Superhydrophobic Surfaces, Taguchi Methodology",
+    },
+    {
+      name: "Dr. Varun Sharma",
+      position: "Electrical Engineering, NIT Jalandhar",
+      image: "vs.jpg",
+      about: "Research Interest: Welding, Material Science, Tribology",
+    },
+  ];
+
+  const chiefsecretary = [
+    {
+      name: "Dr. Gurraj Singh",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "gs.jpg",
+      about:
+        "Research Interest: Life Cycle Assessment, Manufacturing processes, Farm machinery, Machining, Sustainable manufacturing , Bio waste management",
+    },
+    {
+      name: "Dr. Aviral Mishra",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
+      image: "am.jpg",
+      about: "Research Interests: Advanced machining processes, Nanofinishing, Additive manufacturing, Manufacturing of composites",
     },
   ];
 
   const sections = [
     { title: "Patron", members: patrons },
-    { title: "Executive Chair", members: coPatrons },
-    { title: "Organising Chairmen", members: chairman },
-    { title: "Organising Secretaries", members: secretary },
+    { title: "Conference Chairs", members: chairman },
+    { title: "Chief Convenors", members: secretary },
+    { title: "Organising Secretaries", members: orgsecretary },
+    { title: "Convenors", members: chiefsecretary },
+
   ];
 
   const renderSection = (title, members, index) => {
