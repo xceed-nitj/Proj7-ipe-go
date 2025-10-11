@@ -1,106 +1,130 @@
-import { Mail, User } from "lucide-react";
-
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-blue-950 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
-      {/* ===== Animated Wave Background ===== */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 1440 400"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L0,320Z"
-            fill="#1A1307"
-            fillOpacity="0.08"
-          />
-          <path
-            d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,149.3C672,149,768,171,864,176C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L0,320Z"
-            fill="#1A1307"
-            fillOpacity="0.06"
-          />
-        </svg>
-      </div>
+    <footer
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/bg.jpg')",
+      }}
+    >
+      {/* Footer Content */}
+      <div className="relative z-10 container mx-auto px-4 py-16 w-full text-black font-poppins">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
+          {/* Contact Section */}
+          <div className="lg:w-1/2">
+            <div>
+              <h2 className="mt-3 bg-[#007A5E] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#00624C] shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2 group font-poppins">
+                Contact Us
+              </h2>
+            </div>
 
-      {/* ===== Footer Content ===== */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-2 flex flex-col gap-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-          {/* ---- Contact Info ---- */}
-          <div className="relative rounded-3xl bg-white/10 backdrop-blur-sm p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10">
-            <h2 className="text-center text-xl sm:text-2xl font-semibold bg-gradient-to-r from-green-400 to-green-300 text-transparent bg-clip-text mb-2">
-              Contact Us
-            </h2>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Mail className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Email:</strong> vista@nitj.ac.in
+            <ul className="space-y-5 mt-7">
+              <li className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#007A5E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                </svg>
+                <span className="ml-2 text-base">Email: vista@nitj.ac.in</span>
+              </li>
+
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#007A5E"
+                  stroke="#007A5E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span className="ml-2 text-base">
+                  Dr. Nitesh Kashyap (Organizing Secretary): +91 97533 01930
                 </span>
               </li>
-              <li className="flex items-start gap-3">
-                <User className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Dr. Nitesh Kashyap</strong> (Organizing Secretary):{" "}
-                  +91&nbsp;97533&nbsp;01930
+
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#007A5E"
+                  stroke="#007A5E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span className="ml-2 text-base">
+                  Dr. Rohit Singh (Organizing Chairman): +91 70875 13174
                 </span>
               </li>
-              <li className="flex items-start gap-3">
-                <User className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Dr. Rohit Singh</strong> (Organizing Chairman):{" "}
-                  +91&nbsp;70875&nbsp;13174
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <User className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Dr. Aijaz Mehdi Zaidi</strong> (Organizing Chairman):{" "}
-                  +91&nbsp;0181-5032621
+
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="#007A5E"
+                  stroke="#007A5E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <span className="ml-2 text-base">
+                  Dr. Aijaz Mehdi Zaidi (Organizing Chairman): +91 0181–5032621
                 </span>
               </li>
             </ul>
           </div>
 
-          {/* ---- Flag Counter ---- */}
-          <div className="flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-lg hover:shadow-xl transition-all duration-500">
-            <h3 className="text-lg font-semibold text-green-300 mb-4">
+          {/* Flag Counter */}
+          <div className="flex flex-col items-center">
+            <h2 className="text-[#007A5E] font-semibold text-lg mb-4">
               Global Visitors
-            </h3>
-            <a
-              href="https://info.flagcounter.com/8LP0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </h2>
+            <a href="https://info.flagcounter.com/8LP0">
               <img
                 src="https://s01.flagcounter.com/count2/8LP0/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
                 alt="Flag Counter"
-                className="rounded-lg shadow-md border border-gray-300"
+                border="0"
               />
             </a>
           </div>
         </div>
 
-        {/* ---- Divider ---- */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
-
-        {/* ---- Credits ---- */}
-        <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">
-          <p className="text-xs sm:text-sm text-gray-300">
-            © {new Date().getFullYear()} Dr B R Ambedkar National Institute of
-            Technology, Jalandhar
-          </p>
-          <span className="hidden sm:inline text-gray-500">|</span>
-          <p className="text-xs sm:text-sm text-gray-300">
+        {/* Footer Bottom */}
+        <div className="mt-12 pt-8 border-t border-gray-400/30 text-center">
+          <p className="text-xs">
+            © 2025 Dr B R Ambedkar National Institute of Technology, Jalandhar |{" "}
             Developed & Maintained by{" "}
             <a
               href="https://xceed.nitj.ac.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-300 hover:text-green-200 underline underline-offset-4"
+              className="hover:underline"
             >
-              XCEED NITJ
+              <span className="text-xs text-[#007A5E]">XCEED NITJ</span>
             </a>
           </p>
         </div>

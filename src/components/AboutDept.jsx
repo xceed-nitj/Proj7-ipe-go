@@ -22,8 +22,8 @@ function Slider() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, rotateY: 15, scale: 0.9 }}
-      whileInView={{ opacity: 1, rotateY: 0, scale: 1 }}
+      initial={{ opacity: 0, rotateY: -15, scale: 0.9, x: -100 }}
+      whileInView={{ opacity: 1, rotateY: 0, scale: 1, x: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
       viewport={{ once: true }}
       className="relative h-[350px] w-full rounded-3xl overflow-hidden shadow-lg border border-[#E5E9E7] hover:scale-[1.03] transition-transform duration-700 ease-in-out"
@@ -74,45 +74,57 @@ function AboutDept({ confid }) {
   }, [apiUrl, confid]);
 
   return (
-    <section className="relative w-full h-screen bg-[#DEE3E1] flex flex-col justify-center items-center py-12 px-6 sm:px-12 overflow-hidden rounded-xl">
+    <motion.section
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative w-full min-h-screen bg-[#DEE3E1] flex flex-col justify-center items-center py-20 px-6 sm:px-12 overflow-hidden rounded-xl mb-40"
+    >
       {/* Section Title */}
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
         viewport={{ once: true }}
-        className="text-center mb-10 relative z-10"
+        className="text-center mb-12 relative z-10"
       >
         <h2 className="text-[#315C4D] text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide">
-          About the Department of Industrial and Production Engineering
+          About the Department of Electronics and Communication Engineering
         </h2>
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="w-24 h-[3px] bg-[#4CAF80] mx-auto mt-3 rounded-full origin-left"
+          className="w-28 h-[4px] bg-gradient-to-r from-[#4CAF80] to-[#2D6A4F] mx-auto mt-4 rounded-full origin-left"
         ></motion.div>
       </motion.div>
 
       {/* Content Card */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] p-8 lg:p-12 h-[75vh] overflow-hidden"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] p-8 lg:p-12 min-h-[70vh] overflow-hidden"
       >
         {/* Left: Slider */}
-        <div className="lg:col-span-2 flex items-center justify-center">
-          <Slider />
-        </div>
-
-        {/* Right: Scrollable Text */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2 flex items-center justify-center"
+        >
+          <Slider />
+        </motion.div>
+
+        {/* Right: Text Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.6 }}
           viewport={{ once: true }}
           className="lg:col-span-3 text-[#1E2B23] text-base sm:text-lg leading-relaxed text-justify overflow-auto pr-2 scrollbar-thin scrollbar-thumb-[#A9CBB7] scrollbar-track-transparent"
         >
@@ -137,7 +149,10 @@ function AboutDept({ confid }) {
           )}
         </motion.div>
       </motion.div>
-    </section>
+
+      {/* Subtle Bottom Glow */}
+      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[70%] h-64 bg-gradient-to-t from-[#52B788]/40 to-transparent blur-3xl pointer-events-none"></div>
+    </motion.section>
   );
 }
 
