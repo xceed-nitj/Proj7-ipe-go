@@ -84,7 +84,7 @@ function AboutDept({ confid }) {
         className="text-center mb-10 relative z-10"
       >
         <h2 className="text-[#315C4D] text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide">
-          About the Department of Electronics and Communication Engineering
+          About the Department of Industrial and Production Engineering
         </h2>
         <motion.div
           initial={{ scaleX: 0 }}

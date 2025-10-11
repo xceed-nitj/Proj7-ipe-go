@@ -84,7 +84,7 @@ function AboutNITJ({ confid }) {
         <h2 className="text-[#1B4332] text-3xl sm:text-4xl md:text-5xl font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
           <span className="block">About</span>
           <span className="block text-[#2D6A4F] mt-2">
-            Dr. B. R. Ambedkar National Institute of Technology
+            Dr B R Ambedkar National Institute of Technology
           </span>
           <span className="block text-[#081C15]">Jalandhar</span>
         </h2>
@@ -125,7 +125,7 @@ function AboutNITJ({ confid }) {
               <div
                 className="about-content space-y-3 leading-7"
                 dangerouslySetInnerHTML={{
-                  __html: data.about[3]?.description || "",
+                  __html: data.about[1]?.description || "",
                 }}
               />
             )

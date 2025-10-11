@@ -102,7 +102,7 @@ function AboutConf({ confid }) {
       {/* Title */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-[#2D6A4F] relative pb-3">
-          About <span className="text-[#1B4332]">VISTA 2026</span>
+          About <span className="text-[#1B4332]">GLOGIFT 2026</span>
           <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-20 h-[3px] bg-[#95D5B2] rounded-full"></span>
         </h2>
       </div>
@@ -129,7 +129,7 @@ function AboutConf({ confid }) {
                 <div
                   className="about-content text-base md:text-lg font-normal"
                   dangerouslySetInnerHTML={{
-                    __html: data.about[1]?.description || "",
+                    __html: data.about[0]?.description || "",
                   }}
                 />
               )
