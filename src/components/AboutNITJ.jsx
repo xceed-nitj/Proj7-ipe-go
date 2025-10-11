@@ -22,7 +22,7 @@ function Slider() {
   }, []);
 
   return (
-    <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-xl border border-white/20">
+    <div className="relative h-[250px] sm:h-[350px] lg:h-[400px] w-full rounded-3xl overflow-hidden shadow-xl border border-white/20">
       {sliderData.map((slide, index) => (
         <div
           key={index}
@@ -45,7 +45,6 @@ function AboutNITJ({ confid }) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch content
   useEffect(() => {
     getEnvironment().then((url) => setApiUrl(url));
   }, []);
@@ -76,7 +75,7 @@ function AboutNITJ({ confid }) {
       viewport={{ once: true }}
       className="relative w-full flex flex-col justify-center items-center py-20 px-6 overflow-hidden rounded-xl bg-[#DEE3E1] mb-40"
     >
-      {/* Soft Background Pattern */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('/bgpattern.svg')] bg-cover opacity-10" />
 
       {/* Title Section */}
@@ -100,7 +99,7 @@ function AboutNITJ({ confid }) {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
           className="w-28 h-[4px] bg-gradient-to-r from-[#2D6A4F] to-[#1B4332] mx-auto mt-4 rounded-full origin-left"
-        ></motion.div>
+        />
       </motion.div>
 
       {/* Content Card */}
@@ -109,15 +108,26 @@ function AboutNITJ({ confid }) {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         viewport={{ once: true }}
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-8 lg:p-12 hover:shadow-[0_12px_60px_rgba(0,0,0,0.25)] transition-all duration-700 ease-out"
+        className="relative z-10 grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-7xl bg-white/70 backdrop-blur-xl border border-white/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.15)] p-6 sm:p-8 lg:p-12 hover:shadow-[0_12px_60px_rgba(0,0,0,0.25)] transition-all duration-700 ease-out"
       >
+        {/* Slider Section - moves above text in mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2 order-1 lg:order-2 flex items-center justify-center"
+        >
+          <Slider />
+        </motion.div>
+
         {/* Text Section */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="lg:col-span-3 text-[#1B4332] text-base sm:text-lg leading-relaxed text-justify overflow-auto max-h-[80vh]"
+          className="lg:col-span-3 order-2 lg:order-1 text-[#1B4332] text-base sm:text-lg leading-relaxed text-justify"
         >
           {isLoading ? (
             <div className="animate-pulse space-y-4">
@@ -131,22 +141,13 @@ function AboutNITJ({ confid }) {
               <div
                 className="about-content space-y-3 leading-7"
                 dangerouslySetInnerHTML={{
-                  __html: data.about[3]?.description || "Dr. B. R. Ambedkar National Institute of Technology Jalandhar (commonly known as NIT Jalandhar or NITJ) is one of India’s premier technical institutions, recognized for its excellence in engineering, technology, and research. Established in 1987 as a Regional Engineering College, it was later upgraded to a National Institute of Technology in 2002, gaining the status of an Institute of National Importance. NIT Jalandhar offers undergraduate, postgraduate, and doctoral programs across various disciplines of engineering, sciences, management, and computer applications. The institute is known for its state-of-the-art infrastructure, highly qualified faculty, and a strong focus on research and innovation. It actively collaborates with industries and international institutions to provide students with practical exposure and global opportunities. Located in the vibrant city of Jalandhar, Punjab, NITJ emphasizes holistic development, fostering technical skills alongside cultural, social, and entrepreneurial activities, making it a sought-after destination for aspiring engineers and researchers.",
+                  __html:
+                    data.about[3]?.description ||
+                    "Dr. B. R. Ambedkar National Institute of Technology Jalandhar (commonly known as NIT Jalandhar or NITJ) is one of India’s premier technical institutions, recognized for its excellence in engineering, technology, and research. Established in 1987 as a Regional Engineering College, it was later upgraded to a National Institute of Technology in 2002, gaining the status of an Institute of National Importance. NIT Jalandhar offers undergraduate, postgraduate, and doctoral programs across various disciplines of engineering, sciences, management, and computer applications. The institute is known for its state-of-the-art infrastructure, highly qualified faculty, and a strong focus on research and innovation. It actively collaborates with industries and international institutions to provide students with practical exposure and global opportunities. Located in the vibrant city of Jalandhar, Punjab, NITJ emphasizes holistic development, fostering technical skills alongside cultural, social, and entrepreneurial activities, making it a sought-after destination for aspiring engineers and researchers.",
                 }}
               />
             )
           )}
-        </motion.div>
-
-        {/* Slider Section */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.1, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="lg:col-span-2 flex items-center justify-center"
-        >
-          <Slider />
         </motion.div>
       </motion.div>
 

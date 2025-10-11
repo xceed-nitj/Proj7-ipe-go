@@ -10,6 +10,7 @@ const sliderData = [
   { image: "/slider2.jpg", label: " " },
 ];
 
+// --- Slider Component ---
 function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [offsetY, setOffsetY] = useState(0);
@@ -34,7 +35,7 @@ function Slider() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 1 }}
-      className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-md"
+      className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-2xl overflow-hidden shadow-md"
     >
       {sliderData.map((slide, index) => (
         <div
@@ -54,6 +55,7 @@ function Slider() {
   );
 }
 
+// --- About Conference Component ---
 function AboutConf({ confid }) {
   const [apiUrl, setApiUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -61,7 +63,7 @@ function AboutConf({ confid }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Trigger animation on scroll
+  // Intersection Observer to trigger animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -73,11 +75,12 @@ function AboutConf({ confid }) {
     return () => observer.disconnect();
   }, []);
 
-  // Fetch environment + data
+  // Fetch environment URL
   useEffect(() => {
     getEnvironment().then((url) => setApiUrl(url));
   }, []);
 
+  // Fetch conference data
   useEffect(() => {
     if (apiUrl) {
       setIsLoading(true);
@@ -86,7 +89,6 @@ function AboutConf({ confid }) {
           withCredentials: true,
         })
         .then((res) => {
-          console.log("API response:", res.data);
           setData(res.data);
           setIsLoading(false);
         })
@@ -110,7 +112,7 @@ function AboutConf({ confid }) {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-12"
+        className="text-center mb-12 relative w-full"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-[#2D6A4F] relative pb-3">
           About <span className="text-[#1B4332]">GLOGIFT 2026</span>
@@ -118,16 +120,16 @@ function AboutConf({ confid }) {
         </h2>
       </motion.div>
 
-      {/* Card Container */}
+      {/* Content Card */}
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
         className="w-full max-w-7xl bg-white rounded-3xl shadow-lg border border-[#E0EDE4] overflow-hidden p-6 md:p-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-center">
-          {/* Image Slider */}
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10 items-center">
+          {/* Slider */}
+          <div className="order-1 lg:order-1 lg:col-span-2 w-full mb-6 lg:mb-0">
             <Slider />
           </div>
 
@@ -136,7 +138,7 @@ function AboutConf({ confid }) {
             initial={{ opacity: 0, y: 60 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.9, duration: 1 }}
-            className="lg:col-span-3 text-[#1B4332] leading-relaxed text-justify"
+            className="order-2 lg:order-2 lg:col-span-3 text-[#1B4332] leading-relaxed text-justify"
           >
             {isLoading ? (
               <div className="animate-pulse space-y-4">
