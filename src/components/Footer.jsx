@@ -25,11 +25,12 @@ const Footer = () => {
       </div>
 
       {/* ===== Footer Content ===== */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-4 flex flex-col gap-2">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-6 flex flex-col gap-6">
+        {/* ---- Centered Cards ---- */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
           {/* ---- Contact Info ---- */}
-          <div className="relative rounded-3xl bg-white/10 backdrop-blur-sm p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10">
-            <h2 className="text-center text-xl sm:text-2xl font-semibold bg-gradient-to-r from-green-400 to-green-300 text-transparent bg-clip-text mb-2">
+          <div className="relative w-full max-w-md bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10">
+            <h2 className="text-center text-xl sm:text-2xl font-semibold bg-gradient-to-r from-green-400 to-green-300 text-transparent bg-clip-text mb-4">
               Contact Us
             </h2>
             <ul className="space-y-4">
@@ -42,29 +43,15 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr Narendra Kumar</strong> (Organising Secratary){" "}
+                  <strong>Dr Narendra Kumar</strong> (Organising Secretary){" "}
                   +91&nbsp;8982612225
                 </span>
               </li>
-              {/* <li className="flex items-start gap-3">
-                <User className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Dr. Rohit Singh</strong> (Organizing Chairman):{" "}
-                  +91&nbsp;70875&nbsp;13174
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <User className="text-yellow-400 shrink-0" />
-                <span className="text-sm sm:text-base">
-                  <strong>Dr. Aijaz Mehdi Zaidi</strong> (Organizing Chairman):{" "}
-                  +91&nbsp;0181-5032621
-                </span>
-              </li> */}
             </ul>
           </div>
 
           {/* ---- Flag Counter ---- */}
-          <div className="flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-lg hover:shadow-xl transition-all duration-500">
+          <div className="relative w-full max-w-md flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-lg hover:shadow-xl transition-all duration-500">
             <h3 className="text-lg font-semibold text-green-300 mb-4">
               Global Visitors
             </h3>
@@ -81,8 +68,9 @@ const Footer = () => {
             </a>
           </div>
         </div>
+
         {/* ---- Divider ---- */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-4" />
 
         {/* ---- Credits ---- */}
         <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">

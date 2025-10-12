@@ -97,7 +97,7 @@ export default function Navbar() {
 
                 {/* Dropdown */}
                 <div
-                  className={`absolute left-0 top-full mt-2 w-56 bg-white border border-[#D8E3DD] rounded-lg shadow-md p-2 transition-all duration-200 ${
+                  className={`absolute left-0 top-full mt-2 w-80 bg-white border border-[#D8E3DD] rounded-lg shadow-md p-2 transition-all duration-200 ${
                     hoveredGroup === index
                       ? "opacity-100 translate-y-0 pointer-events-auto"
                       : "opacity-0 translate-y-1 pointer-events-none"

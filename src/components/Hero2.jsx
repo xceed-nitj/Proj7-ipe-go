@@ -145,10 +145,6 @@ export default function Hero2() {
 
         {/* --- Announcement Section --- */}
         <section className="py-10 px-6 sm:px-10 bg-[#F8FAF9] text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1D2A26] mb-8 flex items-center justify-center gap-3">
-            <img src="/speaker.png" alt="Speaker Icon" className="w-7 h-7 sm:w-8 sm:h-8" />
-            Announcements
-          </h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* --- Card 1 --- */}
