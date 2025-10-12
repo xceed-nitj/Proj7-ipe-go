@@ -36,14 +36,14 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Email:</strong> gargrk@nitj.ac.in
+                  <strong>Email:</strong> glogift2026@nitj.ac.in
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Prof. R K Garg</strong> (Conference Secretariat){" "}
-                  +91&nbsp;9417549529
+                  <strong>Dr Narendra Kumar</strong> (Organising Secratary){" "}
+                  +91&nbsp;8982612225
                 </span>
               </li>
               {/* <li className="flex items-start gap-3">
