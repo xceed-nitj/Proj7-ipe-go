@@ -104,7 +104,7 @@ const OrganizingHeads = () => {
     {
       name: "Dr. S. Bhadauria",
       position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "bk.jpg",
+      image: "sb.jpg",
       about:
         "Research Interests: Analytical, Experimental and Computational Fracture Mechanics and Stress-life, Stress-life and Multiaxial Fatigue life prediction of weldments, Stress Corrosion Cracking",
     },
