@@ -1,10 +1,36 @@
-// src/components/Hero2.jsx
-
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar/index";
 import TopNavbar from "./Navbar/TopNavInfo";
 import { FileText, Tag, Mic } from "lucide-react";
+import axios from "axios";
+import getEnvironment from "../getenvironment";
 
-export default function Hero2() {
+export default function Hero2({ confid = "glogift2026" }) {
+  const [apiUrl, setApiUrl] = useState(null);
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    // Fetch environment URL
+    getEnvironment().then((url) => setApiUrl(url));
+  }, []);
+
+  useEffect(() => {
+    if (apiUrl) {
+      axios
+        .get(`${apiUrl}/conferencemodule/announcements/conf/${confid}`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          const sorted = res.data
+            .filter((item) => !item.hidden)
+            .sort((a, b) => a.sequence - b.sequence);
+          setAnnouncements(sorted);
+          console.log("Fetched Announcements:", sorted);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [apiUrl]);
+
   return (
     <>
       {/* Show TopNavbar only on tablet and desktop */}
@@ -24,14 +50,12 @@ export default function Hero2() {
         >
           {/* --- Background Image --- */}
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
-            {/* Mobile background below 1187px */}
             <img
               src="/bg.jpg"
               alt="Mobile Background"
               className="absolute inset-0 w-full h-full object-cover block xl:hidden"
               draggable="false"
             />
-            {/* Desktop background */}
             <img
               src="/Backgroundcanva.jpg"
               alt="Desktop Background"
@@ -137,57 +161,51 @@ export default function Hero2() {
                 </button>
               </div>
 
-              {/* ---------- RIGHT SIDE ---------- */}
-             
+              {/* ---------- RIGHT SIDE (empty for now) ---------- */}
             </div>
           </main>
         </section>
 
         {/* --- Announcement Section --- */}
         <section className="py-10 px-6 sm:px-10 bg-[#F8FAF9] text-center">
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* --- Card 1 --- */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#E2EAE7] p-6 hover:shadow-lg transition-shadow duration-300 text-left flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <FileText className="text-[#007A5E] w-6 h-6" />
-                <h2 className="text-lg sm:text-xl font-semibold text-[#007A5E]">
-                  Paper Submission Open
-                </h2>
-              </div>
-              <p className="text-[#4E605A] text-sm sm:text-base">
-                Submissions for research papers and case studies are now open.
-                Submit your work by <strong>August 31, 2026</strong>.
+          <div
+            className={`grid gap-6 max-w-6xl mx-auto ${
+              announcements.length === 1
+                ? "grid-cols-1"
+                : announcements.length === 2
+                ? "grid-cols-1 sm:grid-cols-2"
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            }`}
+          >
+            {announcements.length > 0 ? (
+              announcements.map((item) => (
+                <div
+                  key={item._id}
+                  className="bg-white rounded-2xl shadow-md border border-[#E2EAE7] p-6 
+                             hover:shadow-lg transition-shadow duration-300 text-left flex flex-col gap-3"
+                >
+                  <div className="flex items-center gap-3">
+                    {item.icon === "file" ? (
+                      <FileText className="text-[#007A5E] w-6 h-6" />
+                    ) : item.icon === "tag" ? (
+                      <Tag className="text-[#007A5E] w-6 h-6" />
+                    ) : (
+                      <Mic className="text-[#007A5E] w-6 h-6" />
+                    )}
+                    <h2 className="text-lg sm:text-xl font-semibold text-[#007A5E]">
+                      {item.title}
+                    </h2>
+                  </div>
+                  <p className="text-[#4E605A] text-sm sm:text-base">
+                    {item.metaDescription}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500 text-center col-span-full animate-pulse">
+                Loading announcements...
               </p>
-            </div>
-
-            {/* --- Card 2 --- */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#E2EAE7] p-6 hover:shadow-lg transition-shadow duration-300 text-left flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Tag className="text-[#007A5E] w-6 h-6" />
-                <h2 className="text-lg sm:text-xl font-semibold text-[#007A5E]">
-                  Early Bird Registration
-                </h2>
-              </div>
-              <p className="text-[#4E605A] text-sm sm:text-base">
-                Avail early bird discounts on registration fees until{" "}
-                <strong>October 15, 2026</strong>.
-              </p>
-            </div>
-
-            {/* --- Card 3 --- */}
-            <div className="bg-white rounded-2xl shadow-md border border-[#E2EAE7] p-6 hover:shadow-lg transition-shadow duration-300 text-left flex flex-col gap-3">
-              <div className="flex items-center gap-3">
-                <Mic className="text-[#007A5E] w-6 h-6" />
-                <h2 className="text-lg sm:text-xl font-semibold text-[#007A5E]">
-                  Keynote Speakers Announced
-                </h2>
-              </div>
-              <p className="text-[#4E605A] text-sm sm:text-base">
-                Stay tuned for sessions from renowned experts in sustainability
-                and Industry 5.0.
-              </p>
-            </div>
+            )}
           </div>
         </section>
       </div>

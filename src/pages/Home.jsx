@@ -108,6 +108,7 @@ import AboutConf from "../components/Aboutconf.jsx";
 // import AboutNews from "./components/Dummy";
 // import PinkWaveBanner from "../components/wave.jsx";
 
+
 function Home(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
