@@ -141,7 +141,7 @@ function Home(props) {
       <section className="relative">
         <Hero2 />
       </section>
-      
+    
       {/* About Conference */}
       <section className="px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto">
