@@ -24,14 +24,9 @@ export default function Navbar() {
       label: "Committees",
       subItems: [
         {
-          label: "International Advisory Committee",
+          label: "Advisory Committee",
           href: "/68e9f2c0413c437a3accccb6",
           icon: <Globe className="w-4 h-4" />,
-        },
-        {
-          label: "National Advisory Committee",
-          href: "/68e9f481413c437a3accce2b",
-          icon: <Users className="w-4 h-4" />,
         },
         {
           label: "Technical Committee",
