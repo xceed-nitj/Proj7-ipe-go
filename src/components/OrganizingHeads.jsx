@@ -47,28 +47,28 @@ const OrganizingHeads = () => {
 
   const chairman = [
     {
-      name: "Prof. (Dr). Rajiv Kumar Garg",
+      name: "Prof. Rajiv Kumar Garg",
       position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "rv.jpg",
       about:
         "Research Interests: Supply Chain Management, Net Zero Economy, Life Cycle Assessment, Traditional Machining",
     },
     {
-      name: "Prof. (Dr). Anish Sachdeva",
+      name: "Prof. Anish Sachdeva",
       position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "anish.jpg",
       about:
         "Research Interests: Supply Chain Management, Reliability and Maintenance Engineering, Modeling and Simulation, Optimization, and Advanced Manufacturing",
     },
     {
-      name: "Prof. (Dr). Arvind Bhardwaj",
+      name: "Prof. Arvind Bhardwaj",
       position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "arvind.jpg",
       about:
         "Research Interests: Supply Chain Management, Operations Management, Human Factors Engineering, Life Cycle Assessment, Technology Management, Theory of Constraints, etc",
     },
     {
-      name: "Prof. (Dr). Vishal Sharma",
+      name: "Prof. Vishal Sharma",
       position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "vishal.jpg",
       about: "Research Interests: Additive Manufacturing/3D printing, Machining, Condition monitoring/IIOT/Industry 4.0",
@@ -97,14 +97,14 @@ const OrganizingHeads = () => {
     },
     {
       name: "Dr. Rakesh Kumar",
-      position: "Electrical Engineering, NIT Jalandhar",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "rakesh.jpg",
       about: "Research Interests: 1. Manufacturing Flexibility, Factories of the Future and Design of Manufacturing Systems 2. Engineering Management, Engineering Economics, Industrial Psychology and Entrepreneurship 3. Multi-objective Optimization and Discrete Event Simulation 4. Outcome Based Education (OBE); Engineering Education Optimization",
     },
     {
       name: "Dr. S. Bhadauria",
       position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "bk.jpg",
+      image: "sb.jpg",
       about:
         "Research Interests: Analytical, Experimental and Computational Fracture Mechanics and Stress-life, Stress-life and Multiaxial Fatigue life prediction of weldments, Stress Corrosion Cracking",
     },
@@ -138,7 +138,7 @@ const OrganizingHeads = () => {
     },
     {
       name: "Dr. Varun Sharma",
-      position: "Electrical Engineering, NIT Jalandhar",
+      position: "Industrial and Production Engineering, NIT Jalandhar",
       image: "vs.jpg",
       about: "Research Interest: Welding, Material Science, Tribology",
     },

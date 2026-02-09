@@ -32,9 +32,9 @@ function Slider() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3, duration: 1 }}
+      transition={{ delay: 0.1, duration: 0.4 }}
       className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-2xl overflow-hidden shadow-md"
     >
       {sliderData.map((slide, index) => (
@@ -63,7 +63,7 @@ function AboutConf({ confid }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Intersection Observer to trigger animation
+  // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -102,17 +102,17 @@ function AboutConf({ confid }) {
   return (
     <motion.div
       ref={sectionRef}
-      initial={{ opacity: 0, x: 200 }}
+      initial={{ opacity: 0, x: 150 }}
       animate={isVisible ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className="w-full bg- flex flex-col items-center justify-center py-1 px-1 md:px-12 rounded-xl overflow-hidden"
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="w-full flex flex-col items-center justify-center py-1 px-1 md:px-12 rounded-xl overflow-hidden"
     >
       {/* Title */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-12 relative w-full"
+        transition={{ delay: 0.15, duration: 0.4, ease: "easeOut" }}
+        className="text-center mb-10 relative w-full"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-[#2D6A4F] relative pb-3">
           About <span className="text-[#1B4332]">GLOGIFT 2026</span>
@@ -122,9 +122,9 @@ function AboutConf({ confid }) {
 
       {/* Content Card */}
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
+        transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-7xl bg-white rounded-3xl shadow-lg border border-[#E0EDE4] overflow-hidden p-1 md:p-10"
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10 items-center">
@@ -135,9 +135,9 @@ function AboutConf({ confid }) {
 
           {/* About Text */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.9, duration: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="order-2 lg:order-2 lg:col-span-3 text-[#1B4332] leading-relaxed text-justify"
           >
             {isLoading ? (
