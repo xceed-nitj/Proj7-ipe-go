@@ -138,27 +138,29 @@ export default function Hero2({ confid = "glogift2026" }) {
                   </div>
                 </div>
 
-                {/* Submit Button */}
-                <button
-                  className="mt-4 bg-[#007A5E] text-white px-5 sm:px-7 py-2.5 rounded-lg font-semibold 
-                             text-sm sm:text-base hover:bg-[#00624C] shadow-sm hover:shadow-md 
-                             transition-all duration-300 flex items-center gap-2 group"
-                >
-                  Submit Paper
-                  <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </button>
+                <a
+  href="https://your-link-here.com"
+  target="_blank"      // remove if same tab
+  rel="noopener noreferrer"
+>
+  <button className="mt-3 bg-[#007A5E] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#00624C] shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-2 group">
+    Submit Paper
+    <svg
+      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      />
+    </svg>
+  </button>
+</a>
+
               </div>
 
               {/* ---------- RIGHT SIDE (empty for now) ---------- */}
