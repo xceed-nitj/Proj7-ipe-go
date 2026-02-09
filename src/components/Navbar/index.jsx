@@ -227,7 +227,7 @@ export default function Navbar() {
           )}
 
           <Link
-            to="/68adccc0e8f579b7ff66327d"
+            to="https://cmt3.research.microsoft.com/GLOGIFT2026"
             onClick={() => setMobileOpen(false)}
             className="mt-3 flex items-center justify-center gap-2 bg-[#2D6A4F] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#40916C]"
           >

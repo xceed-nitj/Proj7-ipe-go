@@ -139,7 +139,7 @@ export default function Hero2({ confid = "glogift2026" }) {
                 </div>
 
                 <a
-  href="https://your-link-here.com"
+  href="https://cmt3.research.microsoft.com/GLOGIFT2026"
   target="_blank"      // remove if same tab
   rel="noopener noreferrer"
 >
