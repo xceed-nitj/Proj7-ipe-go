@@ -128,7 +128,9 @@ export default function Navbar() {
 
         {/* RIGHT: BUTTON */}
         <Link
-          to="/68adccc0e8f579b7ff66327d"
+          to="https://cmt3.research.microsoft.com/GLOGIFT2026"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center gap-1.5 bg-[#2D6A4F] text-white px-4 py-1.5 rounded-md text-[13px] md:text-sm font-semibold hover:bg-[#40916C] transition-all whitespace-nowrap"
         >
           <Upload className="w-3.5 h-3.5" />
