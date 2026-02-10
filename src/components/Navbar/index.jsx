@@ -18,6 +18,7 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Tracks", href: "/68e9f44c413c437a3acccdad" },
+    { label: "Important Dates", href: "/dates" },
     { label: "Organising Heads", href: "/68e9f2ca413c437a3acccceb" },
     {
       label: "Committees",
@@ -50,7 +51,7 @@ export default function Navbar() {
         },
       ],
     },
-    { label: "Location", href: "/68e9f507413c437a3acccef3" },
+    { label: "How to Reach NITJ?", href: "/68e9f507413c437a3acccef3" },
   ];
 
   const isActive = (to) => to && (pathname === to || pathname.endsWith(to));

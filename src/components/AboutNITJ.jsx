@@ -86,7 +86,7 @@ function AboutNITJ({ confid }) {
         className="text-center mb-8 relative z-10"
       >
         <h2 className="text-[#1B4332] text-2xl sm:text-3xl  font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
-          <span className="block">About</span>
+          <span className="block"></span>
           <span className="block text-[#2D6A4F] mt-2">
             Dr B R Ambedkar National Institute of Technology
           </span>

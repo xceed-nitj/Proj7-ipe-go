@@ -31,7 +31,7 @@ export default function TopNavbar() {
 
           <div className="flex items-center justify-center space-x-1 hover:text-green-600 cursor-pointer transition-colors duration-200">
             <Phone size={14} />
-            <span>0181 269 0301</span>
+            <span>01815037662</span>
           </div>
 
           <div className="flex items-center justify-center space-x-1 hover:text-red-600 transition-colors duration-200">

@@ -81,8 +81,12 @@ function AboutDept({ confid }) {
         viewport={{ once: true }}
         className="text-center mb-8 relative z-10"
       >
-        <h2 className="text-[#315C4D] text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide">
-          About the Department of Industrial and Production Engineering
+         <h2 className="text-[#1B4332] text-2xl sm:text-3xl  font-bold font-oswald tracking-wide leading-tight drop-shadow-md">
+          <span className="block"></span>
+          <span className="block text-[#2D6A4F] mt-2">
+            Department of Industrial and Production Engineering
+          </span>
+          <span className="block text-[#081C15]">Jalandhar</span>
         </h2>
         <motion.div
           initial={{ scaleX: 0 }}
