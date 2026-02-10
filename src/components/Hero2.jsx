@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "./Navbar/index";
 import TopNavbar from "./Navbar/TopNavInfo";
 import { FileText, Tag, Mic } from "lucide-react";
@@ -8,6 +8,7 @@ import getEnvironment from "../getenvironment";
 export default function Hero2({ confid = "glogift2026" }) {
   const [apiUrl, setApiUrl] = useState(null);
   const [announcements, setAnnouncements] = useState([]);
+  const videoRef = useRef(null);
 
   /* ---------------- ENV ---------------- */
   useEffect(() => {
@@ -31,6 +32,24 @@ export default function Hero2({ confid = "glogift2026" }) {
       .catch((err) => console.log(err));
   }, [apiUrl, confid]);
 
+  /* ---------------- VIDEO SPEED CONTROL ---------------- */
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const setSpeed = () => {
+      video.playbackRate = 0.6; // 🎬 cinematic slow
+    };
+
+    video.addEventListener("loadedmetadata", setSpeed);
+    video.addEventListener("play", setSpeed);
+
+    return () => {
+      video.removeEventListener("loadedmetadata", setSpeed);
+      video.removeEventListener("play", setSpeed);
+    };
+  }, []);
+
   return (
     <>
       {/* Top Navbar (desktop only) */}
@@ -45,28 +64,31 @@ export default function Hero2({ confid = "glogift2026" }) {
         <section
           className="relative rounded-3xl overflow-hidden flex-1 border border-[#E2EAE7]
                      shadow-[0_4px_30px_rgba(0,0,0,0.05)] flex items-center justify-center 
-                     transition-all duration-500 m-2"
+                     transition-all duration-500 m-2 bg-[url('/bgnew.png')] bg-cover"
         >
           {/* ---------------- BACKGROUND ---------------- */}
           <div className="absolute inset-0 z-0 overflow-hidden rounded-3xl">
             {/* Mobile image fallback */}
             <img
-              src="/glow.png"
+              src="/bg.jpg"
               alt="Mobile Background"
               className="absolute inset-0 w-full h-full object-cover block xl:hidden"
               draggable="false"
             />
 
-            {/* Desktop video — direct start, no image, object-fill to show full video */}
-            <video
-              className="absolute inset-0 w-full h-full object-cover hidden xl:block"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/glow.mp4" type="video/mp4" />
-            </video>
+          <video
+  ref={videoRef}
+  className="absolute inset-y-0 left-1/2 -translate-x-0.5
+             w-[50%] h-full object-cover hidden xl:block
+             mask-image-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+  autoPlay
+  loop
+  muted
+  playsInline
+>
+  <source src="/glow.mp4" type="video/mp4" />
+</video>
+
 
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b xl:bg-gradient-to-br from-white/70 via-white/40 to-[#E7F2EE]/40" />
@@ -80,35 +102,34 @@ export default function Hero2({ confid = "glogift2026" }) {
                 <div className="flex items-center gap-4 flex-wrap">
                   <img src="/nitjlogo.png" className="h-10" alt="NITJ" />
                   <img src="/glo.png" className="h-9" alt="GLOGIFT" />
+                  <img src="/graphic.png" className="h-9" alt="GLOGIFT" />
                   <span className="text-[#007A5E] font-bold text-xl">
                     GLOGIFT 2026
                   </span>
                 </div>
 
-                <h1 className="leading-snug">
-                  <span className="inline text-md  sm:text-xl xl:text-2xl font-semibold text-[#1D2A26] ">
-                    26<sup>th</sup> Global Conference on
-                  </span>
-                  <br />
-                  <span className="inline mt-5 text-3xl sm:text-3xl xl:text-4xl font-bold text-[#007A5E]">
-                    Flexible Systems Management
-                  </span>
-                </h1>
+              <h1 className="leading-tight">
+  <span className="block text-md sm:text-xl xl:text-2xl font-semibold text-[#1D2A26] mb-2">
+    26<sup>th</sup> Global Conference on
+  </span>
 
-                <p className="text-lg text-[#4E605A]">
-            
-                  <span className="text-[#007A5E] font-semibold">
-                    Sustainable Innovation through Flexible Strategies in the Era
-                    of Industry 4.0 and Industry 5.0
-                  </span>
-                </p>
+  <span className="block text-3xl sm:text-3xl xl:text-4xl font-bold text-[#007A5E] mb-2">
+    Flexible Systems Management
+  </span>
 
-                {/* DATE — green background, white text */}
+  <span className="block text-lg text-[#4E605A]">
+    Sustainable Innovation through Flexible Strategies in the Era of
+    Industry 4.0 and Industry 5.0
+  </span>
+</h1>
+
+                {/* DATE */}
                 <p className="bg-white border border-[#007A5E] text-[#007A5E] font-semibold px-5 py-2.5 rounded-lg">
                   December 16 – 18, 2026
                 </p>
 
-                <div className="flex inline items-start gap-2 text-[#2C3E50] text-sm sm:text-base max-w-md">
+                {/* INSTITUTE */}
+                <div className="flex items-start gap-2 text-[#2C3E50] text-sm sm:text-base max-w-md">
                   <svg
                     className="w-5 h-5 text-[#007A5E] flex-shrink-0 mt-0.5"
                     fill="none"
@@ -116,22 +137,16 @@ export default function Hero2({ confid = "glogift2026" }) {
                     strokeWidth="2"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 11a3 3 0 100-6 3 3 0 000 6z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z"
-                    />
+                    <path d="M12 11a3 3 0 100-6 3 3 0 000 6z" />
+                    <path d="M19.5 10.5c0 7.5-7.5 11.25-7.5 11.25S4.5 18 4.5 10.5a7.5 7.5 0 1115 0z" />
                   </svg>
-                  <span className="leading-tight">
-                    Dr. B. R. Ambedkar National Institute of Technology, Jalandhar, Punjab, India
+                  <span>
+                    Dr. B. R. Ambedkar National Institute of Technology,
+                    Jalandhar, Punjab, India
                   </span>
                 </div>
 
+                {/* CTA */}
                 <a
                   href="https://cmt3.research.microsoft.com/GLOGIFT2026"
                   target="_blank"
@@ -176,9 +191,7 @@ export default function Hero2({ confid = "glogift2026" }) {
                       {item.title}
                     </h2>
                   </div>
-                  <p className="text-[#4E605A]">
-                    {item.metaDescription}
-                  </p>
+                  <p className="text-[#4E605A]">{item.metaDescription}</p>
                 </div>
               ))
             ) : (

@@ -67,55 +67,55 @@ const OrganizingHeads = () => {
       about:
         "Research Interests: Supply Chain Management, Operations Management, Human Factors Engineering, Life Cycle Assessment, Technology Management, Theory of Constraints, etc",
     },
-    {
-      name: "Prof. Vishal Sharma",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "vishal.jpg",
-      about: "Research Interests: Additive Manufacturing/3D printing, Machining, Condition monitoring/IIOT/Industry 4.0",
-    },
+    // {
+    //   name: "Prof. Vishal Sharma",
+    //   position: "Industrial and Production Engineering, NIT Jalandhar",
+    //   image: "vishal.jpg",
+    //   about: "Research Interests: Additive Manufacturing/3D printing, Machining, Condition monitoring/IIOT/Industry 4.0",
+    // },
   ];
 
-  const secretary = [
-    {
-      name: "Dr. Ajay Gupta",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "ajay.jpg",
-      about:
-        "Research Interests: 	Operations Management Operations Research Theory of Constraints Data Analytics MIS Materials Management Marketing Management Statistics",
-    },
-    {
-      name: "Dr. Rajeev Tehran",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "rajeev.png",
-      about: "Research Interests: Lean, Six Sigma, Productivity Improvement and Advanced Manufacturing",
-    },
-    {
-      name: "Dr. L P Singh",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "lp.jpg",
-      about: "Research Interests: Human Factors Engineering, Ergonomics, Supply Chain Management, Occupational Health and Safety, Additive Manufacturing",
-    },
-    {
-      name: "Dr. Rakesh Kumar",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "rakesh.jpg",
-      about: "Research Interests: 1. Manufacturing Flexibility, Factories of the Future and Design of Manufacturing Systems 2. Engineering Management, Engineering Economics, Industrial Psychology and Entrepreneurship 3. Multi-objective Optimization and Discrete Event Simulation 4. Outcome Based Education (OBE); Engineering Education Optimization",
-    },
-    {
-      name: "Dr. S. Bhadauria",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "sb.jpg",
-      about:
-        "Research Interests: Analytical, Experimental and Computational Fracture Mechanics and Stress-life, Stress-life and Multiaxial Fatigue life prediction of weldments, Stress Corrosion Cracking",
-    },
-     {
-      name: "Dr. R. K. Bansal",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "rk.jpg",
-      about:
-        "Research Interests: 1. Statistical Quality Control 2. Project Management 3. Materials Management 4. Operations Management",
-    },
-  ];
+  // const secretary = [
+  //   {
+  //     name: "Dr. Ajay Gupta",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "ajay.jpg",
+  //     about:
+  //       "Research Interests: 	Operations Management Operations Research Theory of Constraints Data Analytics MIS Materials Management Marketing Management Statistics",
+  //   },
+  //   {
+  //     name: "Dr. Rajeev Tehran",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "rajeev.png",
+  //     about: "Research Interests: Lean, Six Sigma, Productivity Improvement and Advanced Manufacturing",
+  //   },
+  //   {
+  //     name: "Dr. L P Singh",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "lp.jpg",
+  //     about: "Research Interests: Human Factors Engineering, Ergonomics, Supply Chain Management, Occupational Health and Safety, Additive Manufacturing",
+  //   },
+  //   {
+  //     name: "Dr. Rakesh Kumar",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "rakesh.jpg",
+  //     about: "Research Interests: 1. Manufacturing Flexibility, Factories of the Future and Design of Manufacturing Systems 2. Engineering Management, Engineering Economics, Industrial Psychology and Entrepreneurship 3. Multi-objective Optimization and Discrete Event Simulation 4. Outcome Based Education (OBE); Engineering Education Optimization",
+  //   },
+  //   {
+  //     name: "Dr. S. Bhadauria",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "sb.jpg",
+  //     about:
+  //       "Research Interests: Analytical, Experimental and Computational Fracture Mechanics and Stress-life, Stress-life and Multiaxial Fatigue life prediction of weldments, Stress Corrosion Cracking",
+  //   },
+  //    {
+  //     name: "Dr. R. K. Bansal",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "rk.jpg",
+  //     about:
+  //       "Research Interests: 1. Statistical Quality Control 2. Project Management 3. Materials Management 4. Operations Management",
+  //   },
+  // ];
   const orgsecretary = [
     {
       name: "Dr. Narendra Kumar",
@@ -144,28 +144,28 @@ const OrganizingHeads = () => {
     },
   ];
 
-  const chiefsecretary = [
-    {
-      name: "Dr. Gurraj Singh",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "gs.jpg",
-      about:
-        "Research Interest: Life Cycle Assessment, Manufacturing processes, Farm machinery, Machining, Sustainable manufacturing , Bio waste management",
-    },
-    {
-      name: "Dr. Aviral Mishra",
-      position: "Industrial and Production Engineering, NIT Jalandhar",
-      image: "am.jpg",
-      about: "Research Interests: Advanced machining processes, Nanofinishing, Additive manufacturing, Manufacturing of composites",
-    },
-  ];
+  // const chiefsecretary = [
+  //   {
+  //     name: "Dr. Gurraj Singh",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "gs.jpg",
+  //     about:
+  //       "Research Interest: Life Cycle Assessment, Manufacturing processes, Farm machinery, Machining, Sustainable manufacturing , Bio waste management",
+  //   },
+  //   {
+  //     name: "Dr. Aviral Mishra",
+  //     position: "Industrial and Production Engineering, NIT Jalandhar",
+  //     image: "am.jpg",
+  //     about: "Research Interests: Advanced machining processes, Nanofinishing, Additive manufacturing, Manufacturing of composites",
+  //   },
+  // ];
 
   const sections = [
     { title: "Patron", members: patrons },
     { title: "Conference Chairs", members: chairman },
-    { title: "Chief Convenors", members: secretary },
+    // { title: "Chief Convenors", members: secretary },
     { title: "Organising Secretaries", members: orgsecretary },
-    { title: "Convenors", members: chiefsecretary },
+    // { title: "Convenors", members: chiefsecretary },
 
   ];
 
@@ -202,9 +202,9 @@ const OrganizingHeads = () => {
     >
        <h2 className="text-[#1B4332] text-2xl sm:text-3xl  font-bold font-oswald tracking-wide leading-tight drop-shadow-md underline text-center mb-8 relative z-10">
           {/* <span className="block">About</span> */}
-          <span className="block text-[#2D6A4F] mt-2">
+          {/* <span className="block text-[#2D6A4F] mt-2">
             Organising Heads
-          </span>
+          </span> */}
           {/* <span className="block text-[#081C15]">Jalandhar</span> */}
         </h2>
       {/* === Animated Concentric Background === */}

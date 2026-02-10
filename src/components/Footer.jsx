@@ -26,35 +26,59 @@ const Footer = () => {
 
       {/* ===== Footer Content ===== */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 py-6 flex flex-col gap-6">
-        {/* ---- Centered Cards ---- */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+        {/* ---- Centered Cards (Equal Height) ---- */}
+        <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 md:gap-12">
+          
           {/* ---- Contact Info ---- */}
-          <div className="relative w-full max-w-md bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10">
+          <div className="relative w-full max-w-md h-full bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10 flex flex-col">
             <h2 className="text-center text-xl sm:text-2xl font-semibold bg-gradient-to-r from-green-400 to-green-300 text-transparent bg-clip-text mb-4">
               Contact Us
             </h2>
-            <ul className="space-y-4">
+
+            <ul className="space-y-4 flex-1">
               <li className="flex items-start gap-3">
                 <Mail className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
                   <strong>Email:</strong> glogift2026@nitj.ac.in
                 </span>
               </li>
+
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr Narendra Kumar</strong> (Organising Secretary){" "}
-                  +91&nbsp;8982612225
+                  <strong>Dr Narendra Kumar</strong> (+91&nbsp;8982612225)
                 </span>
               </li>
+
+              <li className="flex items-start gap-3">
+                <User className="text-yellow-400 shrink-0" />
+                <span className="text-sm sm:text-base">
+                  <strong>Dr Bikash Kumar</strong> (+91&nbsp;6001181672)
+                </span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <User className="text-yellow-400 shrink-0" />
+                <span className="text-sm sm:text-base">
+                  <strong>Dr Varun Sharma</strong> (+91&nbsp;8591113750)
+                </span>
+              </li>
+
+              {/* <li className="flex items-start gap-3">
+                <User className="text-yellow-400 shrink-0" />
+                <span className="text-sm sm:text-base">
+                  <strong>Dr Rajeev Verma</strong> (+91&nbsp;9464740847)
+                </span>
+              </li> */}
             </ul>
           </div>
 
           {/* ---- Flag Counter ---- */}
-          <div className="relative w-full max-w-md flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-lg hover:shadow-xl transition-all duration-500">
-            <h3 className="text-lg font-semibold text-green-300 mb-4">
+          <div className="relative w-full max-w-md h-full flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-lg hover:shadow-xl transition-all duration-500">
+            <h3 className="text-lg font-semibold text-green-300 mb-2">
               Global Visitors
             </h3>
+
             <a
               href="https://info.flagcounter.com/ApT8"
               target="_blank"
@@ -70,7 +94,7 @@ const Footer = () => {
         </div>
 
         {/* ---- Divider ---- */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-4" />
+        {/* <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent my-4" /> */}
 
         {/* ---- Credits ---- */}
         <div className="flex flex-col sm:flex-row justify-center items-center text-center gap-2">

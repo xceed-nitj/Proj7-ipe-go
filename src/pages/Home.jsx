@@ -152,11 +152,7 @@ function Home(props) {
       <PinkWaveBanner flip/> */}
 
       {/* Timeline */}
-      <section className="px-3 md:px-6 lg:px-8 py-2 md:py-10 lg:py-14">
-        <div className="max-w-7xl mx-auto">
-          <Timeline confid={props.confId} />
-        </div>
-      </section>
+     
       
       {/* About NITJ */}
       <section className="px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 bg-gray-50">
@@ -171,6 +167,12 @@ function Home(props) {
       <section className="px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <AboutDept confid={props.confId} />
+        </div>
+      </section>
+
+       <section className="px-3 md:px-6 lg:px-8 py-2 md:py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto">
+          <Timeline confid={props.confId} />
         </div>
       </section>
       

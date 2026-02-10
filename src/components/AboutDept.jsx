@@ -86,7 +86,7 @@ function AboutDept({ confid }) {
           <span className="block text-[#2D6A4F] mt-2">
             Department of Industrial and Production Engineering
           </span>
-          <span className="block text-[#081C15]">Jalandhar</span>
+          <span className="block text-[#081C15]">NIT Jalandhar</span>
         </h2>
         <motion.div
           initial={{ scaleX: 0 }}

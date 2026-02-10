@@ -27,6 +27,8 @@ import './App.css'
 // import Sponsors from "./pages/Sponsors";
 // import Guidelines from "./pages/Guidelines";
 import CommonTemplate from "./pages/CommonTemplate";
+// import Timeline from "./components/Timeline";
+import ImportantDates from "./components/ImportantDates";
 
 function App() {
    const confid="68e9f184413c437a3acccc05";
@@ -64,6 +66,7 @@ function App() {
         {/* <Route path="localcommittee" element={<LocalCommittee confid={confid} />} /> */}
         {/* <Route path="publications" element={<Publications confid={confid} />} /> */}
         <Route path="/:templateid" element={<CommonTemplate confid={confid} />} />
+        <Route path="/dates" element={<ImportantDates />} />
 
 
       </Routes >
