@@ -28,7 +28,7 @@ import './App.css'
 // import Guidelines from "./pages/Guidelines";
 import CommonTemplate from "./pages/CommonTemplate";
 // import Timeline from "./components/Timeline";
-import ImportantDates from "./components/ImportantDates";
+import ImportantDates from "./components/importantdates";
 
 function App() {
    const confid="68e9f184413c437a3acccc05";

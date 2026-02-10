@@ -171,7 +171,7 @@ export default function Hero2({ confid = "glogift2026" }) {
         </section>
 
         {/* ---------------- ANNOUNCEMENTS ---------------- */}
-        <section className="py-10 px-6 bg-[#F8FAF9]">
+        {/* <section className="py-10 px-6 bg-[#F8FAF9]">
           <div className="grid gap-6 max-w-6xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
             {announcements.length ? (
               announcements.map((item) => (
@@ -200,7 +200,7 @@ export default function Hero2({ confid = "glogift2026" }) {
               </p>
             )}
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   );
