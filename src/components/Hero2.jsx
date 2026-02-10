@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "./Navbar/index";
 import TopNavbar from "./Navbar/TopNavInfo";
-// import { FileText, Tag, Mic } from "lucide-react";
+import { FileText, Tag, Mic } from "lucide-react";
 import axios from "axios";
 import getEnvironment from "../getenvironment";
 
 export default function Hero2({ confid = "glogift2026" }) {
   const [apiUrl, setApiUrl] = useState(null);
-  // const [announcements, setAnnouncements] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
   const videoRef = useRef(null);
 
   /* ---------------- ENV ---------------- */
@@ -16,21 +16,21 @@ export default function Hero2({ confid = "glogift2026" }) {
   }, []);
 
   /* ---------------- ANNOUNCEMENTS ---------------- */
-  // useEffect(() => {
-  //   if (!apiUrl) return;
+  useEffect(() => {
+    if (!apiUrl) return;
 
-  //   axios
-  //     .get(`${apiUrl}/conferencemodule/announcements/conf/${confid}`, {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => {
-  //       const sorted = res.data
-  //         .filter((item) => !item.hidden)
-  //         .sort((a, b) => a.sequence - b.sequence);
-  //       setAnnouncements(sorted);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [apiUrl, confid]);
+    axios
+      .get(`${apiUrl}/conferencemodule/announcements/conf/${confid}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        const sorted = res.data
+          .filter((item) => !item.hidden)
+          .sort((a, b) => a.sequence - b.sequence);
+        setAnnouncements(sorted);
+      })
+      .catch((err) => console.log(err));
+  }, [apiUrl, confid]);
 
   /* ---------------- VIDEO SPEED CONTROL ---------------- */
   useEffect(() => {
@@ -171,7 +171,7 @@ export default function Hero2({ confid = "glogift2026" }) {
         </section>
 
         {/* ---------------- ANNOUNCEMENTS ---------------- */}
-        {/* <section className="py-10 px-6 bg-[#F8FAF9]">
+        <section className="py-10 px-6 bg-[#F8FAF9]">
           <div className="grid gap-6 max-w-6xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
             {announcements.length ? (
               announcements.map((item) => (
@@ -200,7 +200,7 @@ export default function Hero2({ confid = "glogift2026" }) {
               </p>
             )}
           </div>
-        </section> */}
+        </section>
       </div>
     </>
   );
