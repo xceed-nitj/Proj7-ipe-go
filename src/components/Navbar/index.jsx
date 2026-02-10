@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Upload,
@@ -14,6 +14,17 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoveredGroup, setHoveredGroup] = useState(null);
   const [openGroup, setOpenGroup] = useState(null);
+  const closeTimeout = useRef(null);
+
+  // Delayed close so cursor can travel from trigger to dropdown
+  const handleMouseEnter = useCallback((index) => {
+    clearTimeout(closeTimeout.current);
+    setHoveredGroup(index);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    closeTimeout.current = setTimeout(() => setHoveredGroup(null), 150);
+  }, []);
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -57,7 +68,7 @@ export default function Navbar() {
   const isActive = (to) => to && (pathname === to || pathname.endsWith(to));
 
   const linkBase =
-    "group relative inline-flex items-center px-2 md:px-3 py-1 text-[13px] md:text-sm font-medium text-[#1B4332] transition-all hover:text-[#2D6A4F]";
+    "group relative inline-flex items-center px-2 py-1 text-[13px] md:text-sm font-medium text-[#1B4332] transition-all hover:text-[#2D6A4F]";
 
   return (
     <header className="sticky top-0 z-50 bg-[#F8FAF9] border-b border-[#D8E3DD] shadow-sm font-jost backdrop-blur-md">
@@ -70,15 +81,15 @@ export default function Navbar() {
           GLOGIFT <span className="text-[#2D6A4F]">2026</span>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <nav className="hidden lg:flex items-center justify-center gap-3 md:gap-4 lg:gap-5 xl:gap-6 flex-grow ml-6">
+        {/* DESKTOP NAV — reduced gap */}
+        <nav className="hidden lg:flex items-center justify-center gap-1 lg:gap-2 xl:gap-3 flex-grow ml-6">
           {navItems.map((item, index) =>
             item.subItems ? (
               <div
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setHoveredGroup(index)}
-                onMouseLeave={() => setHoveredGroup(null)}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
               >
                 <button type="button" className={linkBase}>
                   {item.label}
@@ -90,26 +101,30 @@ export default function Navbar() {
                   />
                 </button>
 
-                {/* Dropdown */}
+                {/* Dropdown — pt-2 creates invisible hover bridge instead of mt-2 gap */}
                 <div
-                  className={`absolute left-0 top-full mt-2 w-80 bg-white border border-[#D8E3DD] rounded-lg shadow-md p-2 transition-all duration-200 ${
+                  className={`absolute left-0 top-full pt-2 w-80 transition-all duration-200 ${
                     hoveredGroup === index
                       ? "opacity-100 translate-y-0 pointer-events-auto"
                       : "opacity-0 translate-y-1 pointer-events-none"
                   }`}
                 >
-                  {item.subItems.map((sub) => (
-                    <Link
-                      key={sub.label}
-                      to={sub.href}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-md text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
-                        isActive(sub.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
-                      }`}
-                    >
-                      {sub.icon}
-                      {sub.label}
-                    </Link>
-                  ))}
+                  <div className="bg-white border border-[#D8E3DD] rounded-lg shadow-md p-2">
+                    {item.subItems.map((sub) => (
+                      <Link
+                        key={sub.label}
+                        to={sub.href}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-md text-[#1B4332] hover:bg-[#E9F5EF] hover:text-[#2D6A4F] ${
+                          isActive(sub.href)
+                            ? "bg-[#E9F5EF] text-[#2D6A4F]"
+                            : ""
+                        }`}
+                      >
+                        {sub.icon}
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
@@ -134,7 +149,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center gap-1.5 bg-[#2D6A4F] text-white px-4 py-1.5 rounded-md text-[13px] md:text-sm font-semibold hover:bg-[#40916C] transition-all whitespace-nowrap"
         >
-          <Upload className="w-3.5 h-3.5" />
+          {/* <Upload className="w-3.5 h-3.5" /> */}
           Submit Paper
         </Link>
 
@@ -177,7 +192,9 @@ export default function Navbar() {
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={
-          mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
+          mobileOpen
+            ? { height: "auto", opacity: 1 }
+            : { height: 0, opacity: 0 }
         }
         transition={{ duration: 0.3 }}
         className="lg:hidden overflow-hidden border-t border-[#D8E3DD] bg-[#F8FAF9]"
@@ -205,7 +222,9 @@ export default function Navbar() {
                         to={sub.href}
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm text-[#1B4332] hover:bg-[#E9F5EF] ${
-                          isActive(sub.href) ? "bg-[#E9F5EF] text-[#2D6A4F]" : ""
+                          isActive(sub.href)
+                            ? "bg-[#E9F5EF] text-[#2D6A4F]"
+                            : ""
                         }`}
                       >
                         {sub.icon}
