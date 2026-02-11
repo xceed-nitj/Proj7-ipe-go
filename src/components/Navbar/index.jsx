@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    // { label: "Home", href: "/" },
+    { label: "Home", href: "/" },
     { label: "Tracks", href: "/68e9f44c413c437a3acccdad" },
     { label: "Important Dates", href: "/dates" },
     { label: "Organising Heads", href: "/68e9f2ca413c437a3acccceb" },
@@ -145,15 +145,15 @@ export default function Navbar() {
         </nav>
 
         {/* RIGHT: BUTTON */}
-        <Link
+        {/* <Link
           to="https://cmt3.research.microsoft.com/GLOGIFT2026"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center gap-1.5 bg-[#2D6A4F] text-white px-4 py-1.5 rounded-md text-[13px] md:text-sm font-semibold hover:bg-[#40916C] transition-all whitespace-nowrap"
         >
           {/* <Upload className="w-3.5 h-3.5" /> */}
-          Submit Paper
-        </Link>
+          {/* Submit Paper
+        </Link> */} 
 
         {/* MOBILE MENU TOGGLE */}
         <button
