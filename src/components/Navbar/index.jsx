@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "/" },
+    // { label: "Home", href: "/" },
     { label: "Tracks", href: "/68e9f44c413c437a3acccdad" },
     { label: "Important Dates", href: "/dates" },
     { label: "Organising Heads", href: "/68e9f2ca413c437a3acccceb" },
