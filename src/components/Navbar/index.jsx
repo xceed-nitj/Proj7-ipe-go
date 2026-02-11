@@ -62,7 +62,9 @@ export default function Navbar() {
         },
       ],
     },
-    { label: "How to Reach NITJ?", href: "/68e9f507413c437a3acccef3" },
+    { label: "Accomodation", href: "/698c0b48b709cb421cb31421" },
+
+    { label: "How to Reach NITJ?", href: "/698c0b54b709cb421cb3144c" },
   ];
 
   const isActive = (to) => to && (pathname === to || pathname.endsWith(to));
