@@ -45,7 +45,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Prof. Rajiv Kumar Garg (Organizing Chairman)</strong> Mob: +91&nbsp;8982612225
+                  <strong>Prof. Rajiv Kumar Garg (Organizing Chairman)</strong> Mob: +91&nbsp;9417549528
                 </span>
               </li>
 
