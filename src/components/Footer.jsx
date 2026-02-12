@@ -42,25 +42,38 @@ const Footer = () => {
                   <strong>Email:</strong> glogift2026@nitj.ac.in
                 </span>
               </li>
-
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr Narendra Kumar</strong> (+91&nbsp;8982612225)
+                  <strong>Prof. Rajiv Kumar Garg (Organizing Chairman)</strong> Mob: +91&nbsp;8982612225
                 </span>
               </li>
 
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr Bikash Kumar</strong> (+91&nbsp;6001181672)
+                  <strong>Dr Narendra Kumar (Organizing Secretary)</strong> Mob: +91&nbsp;8982612225
                 </span>
               </li>
 
               <li className="flex items-start gap-3">
                 <User className="text-yellow-400 shrink-0" />
                 <span className="text-sm sm:text-base">
-                  <strong>Dr Varun Sharma</strong> (+91&nbsp;8591113750)
+                  <strong>Dr Bikash Kumar (Organizing Secretary)</strong> Mob: +91&nbsp;6001181672
+                </span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <User className="text-yellow-400 shrink-0" />
+                <span className="text-sm sm:text-base">
+                  <strong>Dr Varun Sharma (Organizing Secretary)</strong> Mob: +91&nbsp;8591113750
+                </span>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <User className="text-yellow-400 shrink-0" />
+                <span className="text-sm sm:text-base">
+                  <strong>Dr Rajeev Verma (Organizing Secretary)</strong> Mob: +91&nbsp;9464740847
                 </span>
               </li>
 
