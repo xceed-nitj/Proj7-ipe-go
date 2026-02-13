@@ -52,7 +52,7 @@ const CommonTemplate = ({ confid }) => {
               <div className="absolute bottom-0 right-0 w-40 h-40 bg-yellow-200/25 blur-2xl rounded-full" />
 
               {/* ===== Title ===== */}
-              <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 mb-5 sm:mb-6 md:mb-8 leading-snug">
+              <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#2D6A4F] mb-5 sm:mb-6 md:mb-8 leading-snug">
                 {data ? (
                   <span dangerouslySetInnerHTML={{ __html: data.pageTitle }} />
                 ) : (
@@ -64,9 +64,7 @@ const CommonTemplate = ({ confid }) => {
               </h1>
 
               {/* Divider Line */}
-              <div className="flex justify-center mb-6 sm:mb-8">
-                <div className="w-20 sm:w-28 h-1 bg-gradient-to-r from-green-500 via-yellow-400 to-green-500 rounded-full" />
-              </div>
+          
 
               {/* ===== Description Section ===== */}
               {data ? (
