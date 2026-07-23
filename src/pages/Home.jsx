@@ -104,6 +104,7 @@ import Hero2 from "../components/Hero2";
 // import DriveLinks from "../components/Drivelink";
 import OrganizingHeads from "../components/OrganizingHeads";
 import AboutConf from "../components/Aboutconf.jsx";
+import PublicationOpportunities from "../components/Publications.jsx";
 // import NavbarBluePink from "../components/Navbar/index.jsx";
 // import AboutNews from "./components/Dummy";
 // import PinkWaveBanner from "../components/wave.jsx";
@@ -152,6 +153,12 @@ function Home(props) {
       <PinkWaveBanner flip/> */}
 
       {/* Timeline */}
+
+      <section className="px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <PublicationOpportunities confid={props.confId} />
+        </div>
+      </section>
      
       
       {/* About NITJ */}
