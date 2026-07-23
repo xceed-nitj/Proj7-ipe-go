@@ -141,7 +141,7 @@ function AboutNITJ({ confid }) {
                 className="about-content space-y-3 leading-7"
                 dangerouslySetInnerHTML={{
                   __html:
-                    data.about[3]?.description ||
+                    data.about[2]?.description ||
                     "Dr. B. R. Ambedkar National Institute of Technology Jalandhar (commonly known as NIT Jalandhar or NITJ) is one of India’s premier technical institutions, recognized for its excellence in engineering, technology, and research. Established in 1987 as a Regional Engineering College, it was later upgraded to a National Institute of Technology in 2002, gaining the status of an Institute of National Importance. NIT Jalandhar offers undergraduate, postgraduate, and doctoral programs across various disciplines of engineering, sciences, management, and computer applications. The institute is known for its state-of-the-art infrastructure, highly qualified faculty, and a strong focus on research and innovation. It actively collaborates with industries and international institutions to provide students with practical exposure and global opportunities. Located in the vibrant city of Jalandhar, Punjab, NITJ emphasizes holistic development, fostering technical skills alongside cultural, social, and entrepreneurial activities, making it a sought-after destination for aspiring engineers and researchers.",
                 }}
               />
