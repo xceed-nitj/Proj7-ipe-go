@@ -62,28 +62,32 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* ---- Flag Counter Card ---- */}
-          <div className="flex-1 max-w-xl bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/10 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col items-center justify-center text-center">
-            <h3 className="text-xl font-semibold text-green-300 mb-6">
-              Global Visitors
-            </h3>
+          {/* ---- Student Coordinators Card ---- */}
+          <div className="flex-1 max-w-xl bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-white/10 flex flex-col">
+            <h2 className="text-center text-xl sm:text-2xl font-semibold bg-gradient-to-r from-green-400 to-green-300 text-transparent bg-clip-text mb-6">
+              Student Coordinators
+            </h2>
 
-            <div className="flex flex-col items-center justify-center flex-1 w-full">
-                <a
-                href="https://info.flagcounter.com/ApT8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform duration-300 block"
-                >
-                <img
-                    /* Increased columns to 3 and maxflags to 15 to make the widget naturally larger */
-                    src="https://s01.flagcounter.com/count2/ApT8/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_15/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"
-                    alt="Flag Counter"
-                    className="rounded-lg shadow-2xl border border-white/20 w-full max-w-[300px] md:max-w-[350px]"
-                />
-                </a>
-                <p className="mt-6 text-xs text-gray-400 italic">Tracking international participation</p>
-            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { name: "Alok Yadav", mob: "+91 7798592997" },
+                { name: "Rishikant Mishra", mob: "+91 8889978507" },
+                { name: "Abhishek Singh", mob: "+91 7987356045" },
+                { name: "Piyus Gaur", mob: "+91 7607358947" },
+                { name: "Rupesh Reddy", mob: "+91 7095114723" },
+                { name: "Kaushiki Dubey", mob: "+91 9988539099" },
+                { name: "Adarsh Raj", mob: "+91 6200498153" },
+                { name: "Sagar Kumar", mob: "+91 6280166615" },
+              ].map((contact, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <User className="text-yellow-400 shrink-0 mt-1" size={20} />
+                  <span className="text-sm sm:text-base leading-tight">
+                    <strong className="block">{contact.name}</strong>
+                    <span className="text-yellow-100/80">Mob: {contact.mob}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
